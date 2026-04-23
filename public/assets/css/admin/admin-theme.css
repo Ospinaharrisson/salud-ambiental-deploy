@@ -1,0 +1,343 @@
+:root {
+  /*----------------------------------------------------------------------
+  | Variables Globales: Colores Base y Tipografía
+  ----------------------------------------------------------------------*/
+  --dashboard-bg: #0d1b2a;
+  --dashboard-bg-alt: #1b2a3b;
+  --dashboard-bg-alt-gradient: linear-gradient(135deg, #425168, #1f2c3a);
+
+  --dashboard-border: #3f5061;
+  --dashboard-border-hover: #0099cc;
+
+  --dashboard-text: #f1f8ff;
+  --dashboard-text-hover: #0099cc;
+  --dashboard-text-muted: #6b727c;
+
+  /* Botones */
+  --dashboard-btn-primary: #3a8fd6;
+  --dashboard-btn-secondary: #0e0000;
+
+  --dashboard-btn-toggle-on: #4caf50; 
+  --dashboard-btn-toggle-off: #e53935;
+
+  --dashboard-btn-edit: #5c6bc0;
+
+  /* Tablas */
+  --dashboard-table-bg: #1a2736;
+  --dashboard-box-shadow: 0 8px 16px rgba(31, 38, 135, 0.15);
+
+  /* Badges */
+  --dashboard-badge-on: #22b573; 
+  --dashboard-badge-off: #4c5c6b;
+}
+
+/*==========================================================================
+= Temas: Estilos Globales por Categoría Visual
+==========================================================================*/
+
+/*----------------------------------------------------------------------
+| Fondos
+----------------------------------------------------------------------*/
+.bg {
+  background-color: var(--dashboard-bg) !important;
+  color: var(--dashboard-text) !important;
+}
+
+.bg-alt {
+  background-color: var(--dashboard-bg-alt) !important;
+}
+
+.bg-alt-gradient {
+  background: var(--dashboard-bg-alt-gradient);
+}
+
+/*----------------------------------------------------------------------
+| breadcrumb
+----------------------------------------------------------------------*/
+.breadcrumb {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-radius: 0;
+  background-color: var(--theme);
+}
+
+.breadcrumb-item {
+  max-width: 320px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: default;
+}
+
+.breadcrumb a {
+  color: #fff; 
+  font-weight: 600;
+}
+
+.breadcrumb li {
+  color: #fff !important;
+}
+
+.breadcrumb li::before {
+  color: #fff !important;
+}
+
+/*----------------------------------------------------------------------
+| Contornos
+----------------------------------------------------------------------*/
+.border-contrast {
+  border-color: var(--dashboard-border) !important;
+}
+
+/*----------------------------------------------------------------------
+| Textos
+----------------------------------------------------------------------*/
+.text-title {
+  color: var(--dashboard-text);
+  font-weight: 700 !important;
+  font-size: 1.35rem !important;
+  padding-right: 0.5rem;
+  cursor: default;
+}
+
+.text-main {
+  color: var(--dashboard-text);
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: default;
+}
+
+.text-note {
+  color: var(--dashboard-text-muted) !important;
+  font-size: 0.8rem;
+  cursor: default;
+}
+
+.text-hover {
+  cursor: pointer;
+}
+
+.text-hover:hover {
+  color: var(--dashboard-text-hover) !important;
+}
+
+.card-label {
+  font-size: 14px !important;
+  padding: 5px 0;
+}
+
+/*----------------------------------------------------------------------
+| Botones
+----------------------------------------------------------------------*/
+.btn-text:hover {
+  color: var(--dashboard-text-hover) !important;
+}
+
+.btn-dashboard-primary {
+  background-color: var(--dashboard-btn-primary);
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.btn-dashboard-primary:hover {
+  background-color: #fff;
+  border: 1px solid var(--dashboard-btn-primary);
+  color: var(--dashboard-btn-primary);
+}
+
+.btn-outline-dashboard-primary {
+  background-color: transparent;
+  border: 1px solid var(--dashboard-btn-primary);
+  color: var(--dashboard-btn-primary);
+  transition: background-color 0.3s ease;
+}
+
+.btn-outline-dashboard-primary:hover {
+  background-color: var(--dashboard-btn-primary);
+  color: #fff;
+}
+
+.btn-dashboard-secondary {
+  background-color: var(--dashboard-btn-secondary);
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.btn-dashboard-secondary:hover {
+  background-color: #fff;
+  border: 1px solid var(--dashboard-btn-secondary);
+  color: var(--dashboard-btn-secondary);
+}
+
+.btn-outline-dashboard-secondary {
+  background-color: #fff;
+  border: 1px solid var(--dashboard-btn-secondary);
+  color: var(--dashboard-btn-secondary);
+  transition: background-color 0.3s ease;
+}
+
+.btn-outline-dashboard-secondary:hover {
+  background-color: var(--dashboard-btn-secondary);
+  color: #fff;
+}
+
+.btn-toggle-on {
+  background-color: var(--dashboard-btn-toggle-on);
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.btn-toggle-on:hover {
+  background-color: #fff;
+  border: 1px solid var(--dashboard-btn-toggle-on);
+  color: var(--dashboard-btn-toggle-on);
+}
+
+.btn-toggle-off {
+  background-color: var(--dashboard-btn-toggle-off);
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.btn-toggle-off:hover {
+  background-color: #fff;
+  border: 1px solid var(--dashboard-btn-toggle-off);
+  color: var(--dashboard-btn-toggle-off);
+}
+
+.btn-edit {
+  background-color: var(--dashboard-btn-edit);
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.btn-edit:hover {
+  background-color: #fff;
+  border: 1px solid var(--dashboard-btn-edit);
+  color: var(--dashboard-btn-edit);
+}
+
+/*----------------------------------------------------------------------
+| Links y Navegación
+----------------------------------------------------------------------*/
+.link-hover {
+  color: var(--dashboard-text) !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.link-hover:hover {
+  color: var(--dashboard-text-hover) !important;
+  border: 1px solid var(--dashboard-border-hover);
+  background-color: #fff !important;
+  cursor: pointer;
+}
+
+.nav-hover {
+  color: var(--dashboard-text) !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-hover:hover {
+  background-color: var(--dashboard-bg-alt) !important;
+  color: var(--dashboard-text-hover) !important;
+  border: none !important;
+  cursor: pointer;
+}
+
+.nav-hover.active {
+  background-color: var(--dashboard-bg-alt) !important;
+  color: var(--dashboard-text-hover) !important;
+  font-weight: bold;
+}
+
+
+/*----------------------------------------------------------------------
+| Tablas
+----------------------------------------------------------------------*/
+
+.table-header {
+    border-radius: 6px;
+    background-color: var(--dashboard-bg-alt);
+    color: var(--dashboard-text-muted);
+}
+
+.table-spacing td,
+.table-spacing th {
+  padding: 1rem 1.25rem;
+}
+
+.table-header-cell {
+    color: var(--dashboard-text-muted) !important;
+    font-weight: 700;
+}
+
+.table-body-cell {
+  font-weight: 500;
+}
+
+/*----------------------------------------------------------------------
+| Formularios
+----------------------------------------------------------------------*/
+
+.form-section {
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/*----------------------------------------------------------------------
+| Cajas
+----------------------------------------------------------------------*/
+
+.box-header {
+  background-color: var(--dashboard-table-bg);
+  padding: 15px;
+}
+
+.box-body {
+  padding: 1.5rem;
+}
+
+.box-shadow {
+  box-shadow: var(--dashboard-box-shadow);
+  overflow: hidden;
+}
+
+.box-rounded {
+  border-radius: 0.5rem;
+}
+
+/*----------------------------------------------------------------------
+| Badges
+----------------------------------------------------------------------*/
+.badge-dashboard-on {
+  background-color: var(--dashboard-badge-on);
+}
+
+.badge-dashboard-off {
+  background-color: var(--dashboard-badge-off);
+}
+
+/*----------------------------------------------------------------------
+| tabs
+----------------------------------------------------------------------*/
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.tab {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+  transition: all 0.2s;
+}
+
+.tab-inactive {
+  background-color: #f8f9fa;
+  color: #495057;
+}

@@ -1,0 +1,92 @@
+
+/*----------------------------------------------------------------------
+| Boletín
+----------------------------------------------------------------------*/
+
+.bulletin {
+  min-height: 650px;
+  display: flex;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+.bulletin > :first-child {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bulletin > :last-child {
+  flex: 1 1 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .bulletin {
+    gap: clamp(0.4rem, 1vw, 0.6rem);
+    height: clamp(500px, 55vh, 650px);
+  }
+
+  .bulletin > :first-child {
+    flex: 0 0 clamp(35%, 38vw, 42%);
+    height: 100%;
+  }
+
+  .bulletin > :last-child {
+    flex: 1 1 clamp(58%, 58vw, 65%);
+    height: 100%;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1400px) {
+  .bulletin {
+    gap: clamp(0.5rem, 1.2vw, 0.8rem);
+    min-height: clamp(600px, 58vh, 700px);
+    height: clamp(600px, 58vh, 700px);
+  }
+
+  .bulletin > :first-child {
+    flex: 0 0 clamp(38%, 39vw, 42%);
+    height: 100%;
+  }
+
+  .bulletin > :last-child {
+    flex: 1 1 clamp(58%, 58vw, 62%);
+    height: 100%;
+  }
+}
+
+@media (min-width: 1401px) {
+  .bulletin {
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+    min-height: clamp(650px, 48vh, 800px);
+    height: clamp(650px, 48vh, 800px);
+  }
+
+  .bulletin > :first-child {
+    flex: 0 0 40%;
+    height: 100%;
+  }
+
+  .bulletin > :last-child {
+    flex: 1 1 60%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .bulletin {
+    flex-direction: column;
+  }
+
+  .bulletin > * {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}

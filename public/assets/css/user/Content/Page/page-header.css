@@ -1,0 +1,52 @@
+
+/*
+|--------------------------------------------------------------------------
+| Header
+|--------------------------------------------------------------------------
+*/
+
+.page-header {
+	margin-left: -5rem;
+	margin-right: -5rem;
+}
+
+.module-banner {
+	padding-top: 1.5rem;
+	padding-bottom: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.module-banner > img {
+    height: 140px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.page-breadcrumb {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	overflow: hidden;
+	border: 1px solid #dee2e6;
+	border-radius: 0.5rem;
+	margin: 0;
+	padding: 3px 0;
+	list-style: none;
+}
+
+.page-breadcrumb img {
+    width: 20px;
+    height: 20px;
+}
+
+.page-breadcrumb > .breadcrumb-item.active > span {
+    color: var(--theme);
+}
+
+.theme-separator {
+    height: 5px;
+    margin-bottom: 15px;
+    background-color: var(--theme);
+}

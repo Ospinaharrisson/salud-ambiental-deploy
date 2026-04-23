@@ -1,0 +1,132 @@
+.asset-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 1px solid #eaedef;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    min-height: 65px;
+    border-left: 4px solid var(--theme);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.accordion-list>.asset-item:not(blockquote > .asset-item) {
+    margin: 0 2rem 1.6rem 0.6rem;
+}
+
+blockquote>.asset-item {
+    border-left: none;
+    border-right: 4px solid var(--theme);
+    margin: 0.6rem 1rem 0 1rem;
+}
+
+.asset-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 9px;
+    border-radius: 12px;
+}
+
+.asset-item blockquote {
+    margin: 8px 0 0 0;
+    flex: 0 0 100%;
+    width: auto;
+    border-left: 4px solid;
+    padding-left: 12px;
+    box-sizing: border-box;
+}
+
+.asset-item blockquote .ql-editor {
+    padding: 8px 12px 0 12px;
+    white-space: normal;
+}
+
+.asset-item:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02)
+}
+
+.asset-content .asset-item:hover {
+    transform: scale(1.02);
+}
+
+blockquote>.asset-item:hover {
+    transform: scale(1.005);
+}
+
+.asset-item img {
+    margin-right: 20px;
+    height: 35px;
+    width: 35px;
+}
+
+.asset-item a {
+    text-align: center;
+    align-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 900;
+    background-color: var(--theme);
+}
+
+.asset-item p {
+    font-size: 17px;
+    margin: 0;
+}
+
+.carousel-row {
+    opacity: 1;
+    visibility: visible;
+    max-height: 500px;
+    overflow: hidden;
+    transform: translateY(0);
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s ease,
+        max-height 0.45s ease;
+}
+
+.carousel-row.hidden {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    transform: translateY(10px);
+}
+
+.group-expanded-view {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition:
+        max-height 0.45s ease,
+        opacity 0.45s ease,
+        transform 0.45s ease;
+}
+
+.group-expanded-view.open {
+    max-height: 70vh;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.group-expanded-view.scrollable {
+    overflow-y: auto;
+}
+
+.toggle-group-view i {
+    display: inline-block;
+    transition: transform 0.4s ease;
+}
+
+.toggle-group-view i.rotated {
+    transform: rotate(180deg);
+}

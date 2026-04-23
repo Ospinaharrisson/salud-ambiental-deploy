@@ -1,0 +1,39 @@
+.image-container {
+    min-height: 180px;
+    background-color: #e9ecef;
+}
+
+#selected-images .image-item {
+    border: 2px solid #0d6efd;
+    border-radius: 6px;
+}
+
+.image-item {
+    padding: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.image-item:hover {
+    transform: scale(1.1);
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.img-fluid {
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+.container-title {
+    font-size:18px;
+    font-weight: 900;
+}
+
+.badge {
+    white-space: normal !important;
+    word-wrap: break-word;
+    max-width: 100%;
+    text-align: start;
+}

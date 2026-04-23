@@ -1,0 +1,40 @@
+
+.modal-body .my-5 {
+    margin: 0 !important;
+}
+
+.fc-daygrid-day-number {
+    cursor: pointer;
+}
+
+.fc-scrollgrid-section-header .fc-scroller-harness {
+    overflow: hidden !important;
+}
+
+td.fc-daygrid-day:not(.fc-day-other),
+td.fc-daygrid-day:not(.fc-day-other) .fc-daygrid-day-frame,
+td.fc-daygrid-day:not(.fc-day-other) .fc-daygrid-day-bg,
+td.fc-daygrid-day:not(.fc-day-other) .fc-daygrid-day-top,
+td.fc-daygrid-day:not(.fc-day-other) .fc-daygrid-day-events {
+  cursor: pointer !important;
+}
+
+.fc-event-title-container {
+    cursor: default;
+}
+
+/*
+|--------------------------------------------------------------------------|
+| navbar header
+|--------------------------------------------------------------------------|
+*/
+
+#calendar-table .my-5 {
+    margin: 0 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+#calendar-table .table th {
+    margin: 0 !important;
+    border-top: none;
+}

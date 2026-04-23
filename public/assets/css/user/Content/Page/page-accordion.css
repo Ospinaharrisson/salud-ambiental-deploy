@@ -1,0 +1,103 @@
+/*==========================================================================
+= Estilos Pagina acordeón
+==========================================================================*/
+
+/*
+|--------------------------------------------------------------------------
+| Contenedor
+|--------------------------------------------------------------------------
+*/
+
+.module-container {
+    width: 100%;
+    min-height: 240px;
+    margin-bottom: 50px;
+    border: 2px solid var(--theme);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.module-accordion-banner {
+    height: 75%;
+    padding: 20px;
+}
+
+.module-accordion-banner > img {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+    object-position: left;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Contenedor > acordeón
+|--------------------------------------------------------------------------
+*/
+
+.module-block {
+    height: 25%;
+}
+
+.accordion {
+    border-radius: 0;
+}
+
+.accordion-item {
+    border: none;
+    border-top: 2px solid var(--theme);
+    border-radius: 0 !important;
+}
+
+.accordion-button.collapsed {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: none !important;
+    border: none !important;
+    min-height: 54px !important;
+    border-radius: 0 !important;
+}
+
+.accordion-button::after {
+    color: #fff !important;
+    font-weight: 600 !important;
+}
+
+.accordion-list {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.accordion-list blockquote {
+    margin: 0.8rem 0 1.6rem 0.7rem;
+    padding: 0.8rem 0.4rem;
+    border-left: 4px solid var(--theme);
+    border-radius: 6px;
+}
+
+.accordion-list blockquote .ql-editor {
+    white-space: unset;
+    padding: 0 1rem !important;
+}
+/*
+|--------------------------------------------------------------------------
+| Contenedor > acordeón > Efectos
+|--------------------------------------------------------------------------
+*/
+
+.accordion-button:not(.collapsed) {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: none !important;
+    border: none !important;
+    min-height: 54px !important;
+    border-radius: 0 !important;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.3) !important; 
+}
+
+.accordion-button:hover {
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.3) !important; 
+}

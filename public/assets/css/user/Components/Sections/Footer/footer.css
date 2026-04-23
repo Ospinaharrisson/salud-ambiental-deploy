@@ -1,0 +1,129 @@
+
+/*==========================================================================
+= Estilos Footer
+==========================================================================*/
+
+
+#main-footer {
+    background-color: var(--primary-color);
+}
+
+/*----------------------------------------------------------------------
+| Secciones
+----------------------------------------------------------------------*/
+
+.footer-container {
+    padding-top: 1rem;   
+    padding-bottom: 1.4rem;
+    margin-left: 3rem;
+    margin-right: 3rem;  
+    border-top: 1px solid #dee2e6;
+}
+.footer-middle {
+    overflow: hidden;
+    padding-top: 25px;
+    min-height: 300px;
+}
+
+.footer-bottom {
+    height: 80px;
+}
+
+/*----------------------------------------------------------------------
+| extensiones
+----------------------------------------------------------------------*/
+
+/* extension > lineas de interes */
+
+.extension-container {
+    margin-left: 4%;
+    margin-right: 4%;
+    padding: 20px 20px 30px;
+    background-color: #f0f7f9;
+}
+
+.lines-container {
+    padding: 20px 0;
+    margin: 0;
+}
+
+.line-button {
+    display: block;
+    margin: 0 auto;
+}
+
+.line-button:hover {
+    overflow: visible;
+}
+
+.line-image {
+    height: 110px;
+    max-width: 100%;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+/* extension > subredes de hospitales*/
+
+.network-container {
+    padding: 20px 0;
+}
+
+.network-image {
+    width: 210px; 
+    height: 60px;
+}
+
+/*----------------------------------------------------------------------
+| Texto
+----------------------------------------------------------------------*/
+
+.footer-title {
+    cursor: default;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #FFFFFF;
+    align-items: center;
+}
+
+.footer-link,
+.footer-text {
+    display: block;
+}
+
+.footer-link {
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 0.8em;
+    color: #FFF;
+    text-decoration: none;
+    
+}
+
+.footer-link:hover {
+    color: #dbd9d9;
+}
+
+.footer-text {
+    cursor: default;
+    font-weight: 400;
+    font-size: 0.8em;
+    line-height: 14px;
+    display: inline-block;
+    color: #FFF;
+}
+
+/*----------------------------------------------------------------------
+| Logos
+----------------------------------------------------------------------*/
+
+footer .top-logo {
+    width:  50px;
+    height: 50px;
+}
+
+footer .middle-logo {
+    width: 200px;
+    height: 50px;
+}

@@ -1,0 +1,320 @@
+:root {
+    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --twring-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+}
+
+/*==========================================================================
+= Estilos Plantilla pagina
+==========================================================================*/
+
+.group-block {
+    margin-bottom:26px;
+}
+
+.group-block > h4 {
+    font-weight: bold;
+    text-align: center;    
+    margin-bottom: 10px;
+    color: var(--theme);
+}
+
+.group-block-row {
+    padding: 0 5px;
+    display:flex; 
+    flex-wrap:wrap;
+    gap:12px; 
+}
+
+/*
+|--------------------------------------------------------------------------
+| Carousel
+|--------------------------------------------------------------------------
+*/
+.carousel-wrapper {
+	width: 100%;
+    overflow: visible;
+}
+
+.carousel-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	gap: 12px;
+}
+
+.carousel-viewport {
+  overflow-x: hidden;
+  overflow-y: visible;
+  position: relative;
+  padding-top: 1em;
+}
+
+.carousel-track {
+	display: flex;
+	gap: 12px;
+	transition: transform .3s ease;
+	will-change: transform;
+}
+
+.button-wrapper {
+    margin-top: 15px;
+}
+
+.carousel-button {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 1px solid #d1d5db;
+	background: transparent;
+    padding: 0;
+	cursor: pointer;
+    transition: 1.5s;
+}
+
+.carousel-button:not(:disabled) {
+    transition: transform 0.2s ease, box-shadow 1.5s ease;
+}
+
+.carousel-button > i {
+	font-size: 20px;
+}
+
+.carousel-button:hover {
+	transform: scale(1.1);
+}
+
+.carousel-button:disabled {
+	opacity: 0.4;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Container
+|--------------------------------------------------------------------------
+*/
+
+.asset-content {
+    overflow: hidden;
+    margin-bottom: 9px;
+    min-height: 200px;
+    border-radius: 12px;
+}
+
+.asset-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem;
+    min-height: 100px;
+    background-color: var(--theme);
+}
+
+.asset-title {
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+}
+.asset-close {
+    width: 5%;
+    text-align: center;
+    padding: 0;
+    border-radius: 50%;
+    transition: transform 0.4s ease;
+}
+
+.asset-close:hover,
+.asset-close:active {
+    transform: scale(1.25);
+    border: none !important;
+    border-color: none !important;
+}
+
+.asset-close > i {
+    color: #fff;
+    font-size: 28px;
+    height: 100%;
+    width: 100%;
+}
+
+.asset-description {
+    padding: 24px 24px 0 24px !important;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.asset-container {
+    display: none;
+    position: relative;
+    opacity: 0;
+    width: 70%;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    transform: translateY(8px) scale(0.98);
+    transition: 
+        width 500ms cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+        transform 500ms cubic-bezier(0.4, 0, 0.2, 1),
+        padding 500ms cubic-bezier(0.4, 0, 0.2, 1),
+        margin 500ms cubic-bezier(0.4, 0, 0.2, 1),
+        max-height 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform, max-height;
+}
+
+.asset-container::-webkit-scrollbar {
+    display: none;
+}
+
+.asset-container.is-visible {
+	display: block;
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+
+.asset-container.is-closing{
+    pointer-events: none;
+}
+
+.asset-container.animate-slide-down {
+    animation: slideDown 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+    0%   { transform: translateY(-20px) scale(0.98); opacity: 0; max-height: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; max-height: 2000px; }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Item
+|--------------------------------------------------------------------------
+*/
+
+.resource-item {
+    display:flex; 
+    position: relative;
+    z-index: 1;
+    flex-direction: column;
+    align-items:center; 
+    justify-content:center; 
+    text-align: center;
+    box-sizing:border-box; 
+    border:1px solid #e5e7eb; 
+    border-radius:6px;
+    min-height:55px; 
+    padding:8px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    cursor:pointer;
+    transition: 0.25s;
+}
+
+.resource-item > p {
+    margin:  0;
+}
+
+.resource-item > span {
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.resource-item:hover,
+.resource-item:focus {
+    transform: translateY(-0.30rem);
+    z-index: 10;
+    box-shadow: 0 0 12px #08080850;
+}
+
+.resource-item.fade {
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+
+.resource-item.hide {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+/*
+|--------------------------------------------------------------------------
+| List
+|--------------------------------------------------------------------------
+*/
+
+.asset-list {
+    list-style: none;
+    margin: 0;
+    padding: 24px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| per Page
+|--------------------------------------------------------------------------
+*/
+
+.asset-perpage {
+    margin: 1rem;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+.asset-perpage label,
+.asset-perpage span {
+    color: #555;
+}
+
+.asset-perpage select {
+    padding: 3px 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 0.9rem;
+    color: #333;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.asset-perpage:hover {
+    background-color: transparent;
+}
+/*
+|--------------------------------------------------------------------------
+| paginación
+|--------------------------------------------------------------------------
+*/
+
+.asset-pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.asset-pagination .pagination {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.asset-pagination .page-link {
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 0.875rem;
+    color: #444;
+}
+
+.asset-pagination .page-link:hover {
+    background: #f2f2f2;
+}
+
+.asset-pagination .active .page-link {
+    background: #38465b;
+    color: #fff;
+    border-color: #38465b;
+}

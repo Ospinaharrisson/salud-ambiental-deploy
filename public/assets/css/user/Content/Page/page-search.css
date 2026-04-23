@@ -1,0 +1,284 @@
+/*
+|--------------------------------------------------------------------------
+| Input
+|--------------------------------------------------------------------------
+*/
+
+#search-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100px;
+}
+
+.asset-searcher {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 45%;
+    height: 50px;
+}
+
+.asset-searcher > input {
+    padding: 12px 54px 12px 20px;
+    border-radius: 9999px;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.asset-searcher > button:active,
+.asset-searcher > button > img:active {
+    border-color: transparent !important;
+    background: none !important;
+}
+
+.asset-searcher > button > img {
+    position: relative;
+    z-index: 1;
+    padding: 5px;
+    margin-left: -70px;
+    height: 35px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Modal
+|--------------------------------------------------------------------------
+*/
+
+.offcanvas-modal {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    z-index: 1050;
+    transition: right 0.9s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.offcanvas-modal.show {
+    right: 0;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Canvas
+|--------------------------------------------------------------------------
+*/
+
+/* Header */
+.offcanvas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--theme);
+    padding: 15px 25px;
+    border-bottom: 1px solid #ddd;
+}
+
+.offcanvas-header > h3 {
+    font-weight: bold;
+    margin: 0;
+    cursor: default;
+}
+
+.offcanvas-header > button {
+    background-color: transparent;
+    border: none;
+    font-size: 34px;
+    transition: color 0.4s ease;
+}
+
+.offcanvas-header > button:hover {
+    color: #fff;
+}
+
+/* Body  */
+.offcanvas-body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Filters */
+.offcanvas-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 24px;
+    background: #f8f9fa;
+}
+
+.offcanvas-input {
+    padding: 8px 35px 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    height: 38px;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+}
+
+.offcanvas-input:hover,
+.offcanvas-input:focus {
+    border-color: #999;
+}
+
+.canvas-select {
+    appearance: none;
+    position: relative;
+    background-color: #fff;
+}
+
+.canvas-select-wrapper {
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.canvas-select-wrapper::after {
+    content: "";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    width: 10px;
+    height: 6px;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path fill='black' d='M0 0l5 6 5-6z'/></svg>");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.canvas-select-wrapper:has(select:focus)::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Content */
+.offcanvas-assets {
+    flex: 1 0 90%;
+    height: 90%;
+    box-sizing: border-box;
+    padding: 1rem 1rem 1rem 2rem;
+}
+
+.offcanvas-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    box-sizing: border-box;
+    gap: 10px;
+    height: 90%;
+}
+
+.offcanvas-items .canvas-card {
+    flex: 0 1 calc(25% - 1rem);
+    box-sizing: border-box;
+}
+
+.no-results-message {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 50px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Canvas card
+|--------------------------------------------------------------------------
+*/
+
+.canvas-card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-left: 1.4rem;
+    height: 230px;
+    font-size: 13px;
+    border: 1px solid #e1e1e1;
+    border-radius: 1rem;
+    box-shadow: inset -3px 3px #fff, 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.canvas-card:hover {
+    transform: translateY(-2px);
+    box-shadow: inset -5px 5px #fff, 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.canvas-card .title {
+    grid-area: title;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    align-self: center;
+}
+
+.canvas-card .icon {
+    display: inline-block;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.canvas-card .icon-content {
+    background: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.canvas-card .icon img {
+    height: 35px;
+    width: 35px;
+    object-fit: contain;
+}
+
+
+.card-body {
+    padding-top: 0.5rem;
+    color: var(--theme);
+}
+
+.card-item {
+    display: flex;
+    margin-bottom: 0.3rem;
+    display: -webkit-box;
+    line-clamp: unset;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    align-items: start;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.card-footer > a {
+    border: none;
+    border-color: transparent;
+    color: #fff;
+    font-weight: 600;
+}
+
+.canvas-button {
+    color: #fff;
+    background-color: var(--theme);
+}
+
+.canvas-button:hover {
+    color: var(--theme);
+    background-color: #fff;
+    border: 1px solid var(--theme);
+}

@@ -1,0 +1,107 @@
+:root {
+  /*----------------------------------------------------------------------
+  | Variables Globales: Colores Base y Tipografía
+  ----------------------------------------------------------------------*/
+  --primary-color: #268AA3;
+  --secondary-color: #4ABFE3;
+  --body-bg: #ffffff;
+  --body-bg-contrast: #fff;
+
+  --font-color: inherit;
+  --font-scale: 1;
+}
+
+body.app-contrast {
+  --primary-color: #1b1b1b;
+  --secondary-color: #292929;
+
+  --body-bg: #514d4d;
+  --body-bg-contrast: #696767;
+
+  --font-color: #fff;
+}
+
+body.mobile-landscape img {
+  max-width: 90%;
+}
+
+body.is-mobile * {
+  transform-origin: top center;
+}
+
+
+/*==========================================================================
+= Temas: Estilos Globales por Categoría Visual
+==========================================================================*/
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-y: hidden;
+  background-color: var(--body-bg);
+  color: var(--font-color);
+}
+
+.main-content {
+  margin: 0 4%;
+}
+
+.ql-editor {
+  min-height: auto !important;  
+  height: auto !important;      
+  padding: 12px 15px !important;
+  overflow-x: hidden !important;
+}
+
+.ql-editor img {
+  object-fit: contain !important;
+  max-width: 100% !important;
+  border-radius: 5px;
+}
+
+.btn-home {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 6px 18px;
+}
+
+.btn-home:hover {
+  background-color: var(--secondary-color);
+}
+
+/*----------------------------------------------------------------------
+| Contenido
+----------------------------------------------------------------------*/
+
+.content-section {
+  border-top: 6px solid var(--primary-color);
+  padding-top: 20px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.content-section :is(h1, h2, h3, h4, h5, h6, .title):first-of-type {
+  text-align: center;
+  font-weight: bold;
+  color: var(--primary-color);
+  letter-spacing: 4px;
+}
+
+/*----------------------------------------------------------------------
+| Animaciones
+----------------------------------------------------------------------*/
+
+/* Imagenes */
+
+.zoom-hover {
+  transition: transform 0.3s ease;
+}
+
+.zoom-hover:hover {
+  z-index: 3;
+  transform: scale(1.3);
+}

@@ -1,0 +1,206 @@
+/*==========================================================================
+= Estilos Contenido media (versión responsive con vh/vw)
+==========================================================================*/
+
+/*----------------------------------------------------------------------
+| Contenido principal
+----------------------------------------------------------------------*/
+
+.main-container {
+    width: 100%;
+    height: 70vh;
+}
+
+.main-container .row {
+    height: 100%;
+}
+
+.main-container .col {
+    height: 100%;
+}
+
+.video-container {
+    width: 100%;
+    height: 100%;
+}
+
+/*----------------------------------------------------------------------
+| Video
+----------------------------------------------------------------------*/
+    
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/*----------------------------------------------------------------------
+| Carrusel social media
+----------------------------------------------------------------------*/
+
+.media-carousel-container {
+    height: 100%;
+    background: #f7f7f7;
+    border-radius: 1.5vh;
+    box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.media-carousel-container .carousel,
+.media-carousel-container .carousel-inner,
+.media-carousel-container .carousel-item {
+    height: 100%;
+}
+
+.media-carousel-container .carousel-item img {
+    height: 70vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+/*----------------------------------------------------------------------
+| Puntos de recolección
+----------------------------------------------------------------------*/
+
+.media-buttons-container {
+    height: 100%;
+    padding-right: 0; 
+}
+
+.media-card-title {
+    font-size: clamp(1rem, 1.5vh, 1.3rem);
+    font-weight: 900;
+    color: #fff;
+    margin: 0;
+}
+
+.points-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    height: 100%;
+}
+
+.point-box {
+    width: 18vh;
+    height: 18vh;
+    padding: 20px;
+    color: #333;
+    font-weight: bold;
+    font-size: clamp(0.9rem, 1.8vh, 1.1rem);
+    border-radius: 0.8vh;    
+    background-color: #fff;
+    box-shadow: 0 0 1.2vh rgba(0, 0, 0, 0.15);
+    transition: all 0.25s ease;
+    overflow: hidden; 
+}
+
+.point-box:hover {
+    transform: scale(1.05);
+    background-color: #f2f2f2;
+    box-shadow: 0 0.6vh 2vh rgba(0, 0, 0, 0.25);
+}
+
+.point-box a,
+.point-box img {
+    width: 100%;
+    height: 100%;
+}
+
+.point-box img {
+    object-fit: contain;
+}
+
+.point-1 { 
+    border-top-left-radius: 12vh;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    justify-self: end;
+}  
+.point-2 { 
+    border-top-right-radius: 12vh; 
+    padding-left: 10px;
+    padding-bottom: 10px;
+    justify-self: start; 
+}
+.point-3 { 
+    border-bottom-left-radius: 12vh;
+    padding-right: 10px;
+    padding-top: 10px;
+    justify-self: end; 
+}  
+.point-4 { 
+    border-bottom-right-radius: 12vh; 
+    padding-left: 10px;
+    padding-top: 10px;
+    justify-self: start; 
+}
+
+/*----------------------------------------------------------------------
+| Puntos de recolección > botones de información
+----------------------------------------------------------------------*/
+
+.media-content-container {
+    height: 9vh;
+    width: 100%;
+    padding: 1.2vh;
+}
+
+.media-content-button {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    border: 0.2vh solid #fff;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.media-content-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+}
+
+.media-content-text {
+    flex: 0 0 80%;
+    font-size: clamp(0.75rem, 1.3vh, 1rem);
+    font-weight: 700;
+    text-align: start;
+    color: #fff;
+}
+
+.media-question-icon {
+    flex: 0 0 20%;
+    width: 8vh;  
+    height: 100%;
+    padding: 3px;
+    object-fit: contain;
+}
+
+.media-info-icon-container {
+    flex: 0 0 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.media-info-icon {
+    width: 8vh;
+    height: 100%;
+    padding: 3px;
+    object-fit: contain;
+}
+
+.media-btn-question {
+    background-color: #33cbcc;
+}
+
+.media-btn-info {
+    background-color: #0072bb;
+}

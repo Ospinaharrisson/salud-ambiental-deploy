@@ -1,0 +1,41 @@
+
+
+.fc-scrollgrid-sync-inner,
+.fc-scrollgrid-sync-inner:hover {
+  cursor: default;
+}
+
+.fc-col-header-cell-cushion {
+  text-decoration: none !important;
+}
+
+.fc-daygrid-day-number {
+  text-decoration: none;
+}
+
+.fc-col-header-cell-cushion {
+  color: #268aa3;
+}
+
+.fc-day-other {
+  cursor: default;
+}
+
+.fc-daygrid-day-number {
+  color: #268aa3;
+}
+
+.fc-event {
+  background-color: #61b9da;
+  border: 1px solid #289cc0;
+}
+
+.fc-event-title {
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.2;
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+}
+

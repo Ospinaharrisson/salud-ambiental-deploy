@@ -1,0 +1,17 @@
+#color-input {
+  background-color: #fff !important;
+  color: #212529 !important;
+  opacity: 1 !important;
+}
+
+.colorpicker-element * {
+    cursor: pointer !important;
+}
+
+.pickr {
+    display: none;
+}
+
+.input-group-text {
+    height: 100%;
+}

@@ -1,0 +1,479 @@
+:root {
+    --forecast-color: #268aa357;
+}
+
+body.app-contrast {
+    --forecast-color: #1363778e;
+}
+
+/*----------------------------------------------------------------------
+| Contenido
+----------------------------------------------------------------------*/
+
+#todayForecast {
+    display: flex;
+    flex-direction: column;
+    height: 710px;
+    color: #fff;
+}
+
+@media (min-width: 769px) {
+    #todayForecast {
+        height: 100%;
+    }
+}
+
+.forecast-main {
+    display: flex;
+    width: 100%;
+    height: 90%;
+}
+
+.forecast-container {
+    flex: 0 0 70%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.forecast-info {
+    text-align: center;
+    margin: auto;
+}
+
+.weather-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.weather-container > * {
+    flex: 0 0 calc(50% - 10px);
+}
+
+.weather-info {
+    height: 50px;
+    padding: 8px;
+    background-color: var(--forecast-color);
+    border-radius: 8px;
+}
+
+.weather-buttons-container {
+    flex: 0 0 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-width: 0;
+}
+
+.weather-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    padding: 8px;
+    border-radius: 14px;
+    background-color: var(--forecast-color);
+}
+
+.weather-button > img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+/*----------------------------------------------------------------------
+| Fondos
+----------------------------------------------------------------------*/
+
+.bg-forecast {
+    position: relative;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    &::before {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('/assets/images/user/Content/Bulletin/TodayForecast/dayTime-backgrounds/default-city.jpg');
+    }
+
+    &::after {
+        background: linear-gradient(to bottom, rgba(120, 247, 255, 0.8), rgba(0, 0, 0, 0.6));
+    }
+
+    > * {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.bg-morning {
+    &::before {
+        background-image: url('/assets/images/user/Content/Bulletin/TodayForecast/dayTime-backgrounds/morning-city.jpg');
+    }
+
+    &::after {
+        opacity: 0.7;
+        background: linear-gradient(to bottom, rgba(80, 247, 232, 0.8), rgba(0, 0, 0, 0.6));
+    }
+}
+
+.bg-afternoon {
+    &::before {
+        background-image: url('/assets/images/user/Content/Bulletin/TodayForecast/dayTime-backgrounds/afternoon-city.jpg');
+    }
+
+    &::after {
+        background: linear-gradient(to bottom, rgba(46, 168, 201, 0.8), rgba(0, 0, 0, 0.6));
+    }
+}
+
+.bg-night {
+    &::before {
+        background-image: url('/assets/images/user/Content/Bulletin/TodayForecast/dayTime-backgrounds/night-city.jpg');
+    }
+
+    &::after {
+        background: linear-gradient(to bottom, rgba(38, 138, 163, 0.8), rgba(0, 0, 0, 0.6));
+    }
+}
+
+.bg-night-2 {
+    &::before {
+        background-image: url('/assets/images/user/Content/Bulletin/TodayForecast/dayTime-backgrounds/night-city-2.jpg');
+        background-position: center;
+    }
+
+    &::after {
+        background: linear-gradient(to bottom, rgba(25, 92, 112, 0.85), rgba(0, 0, 0, 0.75));
+    }
+}
+
+.bg-dawn {
+    &::before {
+        background-image: url('/assets/images/user/Content/Bulletin/TodayForecast/dayTime-backgrounds/dawn-city.jpg');
+    }
+
+    &::after {
+        background: linear-gradient(to bottom, rgba(23, 87, 102, 0.8), rgba(0, 0, 0, 0.6));
+    }
+}
+
+.bg-dawn-2 {
+    &::before {
+        background-image: url('/assets/images/user/Content/Bulletin/TodayForecast/dayTime-backgrounds/dawn-city-2.png');
+        background-position: center;
+    }
+
+    &::after {
+        background: linear-gradient(to bottom, rgba(37, 120, 139, 0.8), rgba(0, 0, 0, 0.6));
+    }
+}
+
+.bg-clouds {
+    &::before {
+        background-image: url('/assets/images/user/Content/Bulletin/TodayForecast/weather-backgrounds/cloud-city.jpg');
+    }
+    &::after {
+        background: linear-gradient(to bottom, rgba(140, 167, 190, 0.8), rgba(0, 0, 0, 0.6));
+    }
+}
+
+.bg-rain {
+    &::before {
+        background-image: url('/assets/images/user/Content/Bulletin/TodayForecast/weather-backgrounds/rain-city.jpg');
+    }
+    &::after {
+        background: linear-gradient(to bottom, rgba(70, 90, 120, 0.8), rgba(0, 0, 0, 0.65));
+    }
+}
+
+/*----------------------------------------------------------------------
+| Iconos
+----------------------------------------------------------------------*/
+
+#daytime-icon {
+    height: 65px;
+    width: 65px;
+}
+
+#weather-icon {
+    height: 100px;
+    width: 100px;
+}
+
+.weather-info i {
+    font-size: 24px;
+    margin-right: 6px;
+}
+
+/*----------------------------------------------------------------------
+| Texto
+----------------------------------------------------------------------*/
+
+#daytime-message {
+    font-size: 1rem;
+    margin: 0;
+}
+.BogotaToday {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#daytime-calendar {
+    font-size: .9rem;
+    margin-bottom: 1rem;
+}
+
+#daytime-hour {
+    font-size: 1.55rem;
+    margin: 0;
+}
+
+#weather-description {
+    margin: 0;
+    padding: 6px 2px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: var(--forecast-color);   
+}
+
+.temp-indicators > span {
+    font-size: calc(0.8rem * var(--font-scale));
+    margin: 0 0.5rem;
+}
+
+#temp-now {
+    font-size: calc(1.3rem * var(--font-scale));
+    margin: 0;
+}
+
+.weather-info span {
+    text-align: center;
+    font-size: calc(0.8rem * var(--font-scale));
+}
+
+/*----------------------------------------------------------------------
+| Creditos
+----------------------------------------------------------------------*/
+.forecast-footer {
+    width: 100%;
+    height: 10%;
+    padding: 10px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    gap: 6px;
+    font-size: 11px;
+    color: #ddd;
+}
+
+.forecast-credit a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.forecast-credit-logo {
+    width: 80px;
+    height: 30px;
+    margin-left: 4px; 
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (min-width: 577px) and (max-width: 768px) {
+    .forecast-main{
+        justify-content: center;
+    }
+
+    .forecast-container {
+        flex: 0 0 60%;
+    }
+
+    .weather-buttons-container {
+        flex: 0 0 22%;
+    }
+
+    .forecast-container {
+        padding: 10px;
+    }
+    
+    .weather-buttons-container {
+        padding: 10px;
+    }
+
+    .forecast-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .weather-container {
+        gap: 5px;
+    }
+
+    #daytime-icon {
+        height: 60px;
+        width: 60px;
+    }
+
+    .BogotaToday {
+        font-size: 1.7rem;
+        margin: 5px 0;
+    }
+
+    #daytime-hour {
+        font-size: 1.2rem;
+    }
+
+    #daytime-calendar {
+        margin-bottom: 0.8rem;
+        font-size: .8rem;
+    }
+    
+    #daytime-message {
+        font-size: 1rem;
+    }
+
+    .weather-info{
+        height: 40px;
+        padding: 5px;
+    }
+
+    #weather-description {
+        width: 200px;
+    }
+
+    .weather-info i {
+        font-size: 18px;
+    }
+
+    .weather-info span {
+        font-size: calc(0.65rem * var(--font-scale));
+    }
+
+    #weather-icon {
+        height: 80px;
+        width: 80px;
+    }
+
+    .weather-button {
+        height: 80px;
+    }
+
+    .forecast-credit-logo {
+        width: 70px;
+    }
+}
+
+@media (max-width: 576px) {
+    .forecast-main {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .forecast-container {
+        flex: 0 0 auto;
+        padding: clamp(10px, 2vh, 15px);
+    }
+    
+    .weather-buttons-container {
+        flex: 0 0 auto;
+        padding: clamp(10px, 2vh, 15px);
+        margin-top: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: clamp(8px, 2vw, 12px);
+        justify-items: stretch;
+        align-items: stretch;
+    }
+
+    .weather-button {
+        height: clamp(70px, 10vh, 90px);
+        margin: 0 !important;
+        width: 100%;
+    }
+
+    .forecast-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .weather-container {
+        gap: 5px;
+    }
+
+    #daytime-icon {
+        height: 60px;
+        width: 60px;
+    }
+
+    .BogotaToday {
+        font-size: 1.7rem;
+        margin: 5px 0;
+    }
+
+    #daytime-hour {
+        font-size: 1.2rem;
+    }
+
+    #daytime-calendar {
+        margin-bottom: 0.8rem;
+        font-size: .8rem;
+    }
+    
+    #daytime-message {
+        font-size: 1rem;
+    }
+
+    .weather-info{
+        height: 40px;
+        padding: 5px;
+    }
+
+    #weather-description {
+        width: 200px;
+    }
+
+    .weather-info i {
+        font-size: 18px;
+    }
+
+    .weather-info span {
+        font-size: calc(0.65rem * var(--font-scale));
+    }
+
+    #weather-icon {
+        height: 80px;
+        width: 80px;
+    }
+
+    .forecast-credit-logo {
+        width: 70px;
+    }
+}

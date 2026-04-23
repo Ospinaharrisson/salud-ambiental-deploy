@@ -1,0 +1,117 @@
+
+/*==========================================================================
+= Estilos Carrusel
+==========================================================================*/
+
+/*----------------------------------------------------------------------
+| Carrusel
+----------------------------------------------------------------------*/
+
+#mainBannerCarousel.carousel, #mainBannerCarousel .carousel-item, #mainBannerCarousel img {
+  height: clamp(240px, 50vh, 500px);
+}
+
+#mainBannerCarousel .carousel-item  img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: var(--body-bg-contrast);
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+/*----------------------------------------------------------------------
+| Carrusel > Flechas
+----------------------------------------------------------------------*/
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 35%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.carousel-controls .carousel-control-prev,
+.carousel-controls .carousel-control-next {
+  pointer-events: auto;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+}
+
+.carousel-arrow {
+  color: #fff;
+  stroke: #000;
+  width: clamp(50px, 12vw, 110px);
+  height: clamp(50px, 12vw, 110px);
+  flex-shrink: 0;
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.carousel-arrow path {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-control-prev:hover .carousel-arrow,
+.carousel-control-next:hover .carousel-arrow {
+  transform: scale(1.1);
+}
+
+/*----------------------------------------------------------------------
+| Carrusel > Indicadores
+----------------------------------------------------------------------*/
+
+.carousel-indicators [data-bs-target] {
+  height: 5px;
+  border: 1px solid #6e6e6e;
+  border-radius: 4px;
+}
+
+/*----------------------------------------------------------------------
+| Responsividad
+----------------------------------------------------------------------*/
+
+@media (max-width: 1400px) {
+  #mainBannerCarousel.carousel, #mainBannerCarousel .carousel-item, #mainBannerCarousel img {
+    height: clamp(240px, 45vh, 450px);
+  }
+}
+
+@media (max-width: 1200px) {
+  #mainBannerCarousel.carousel, #mainBannerCarousel .carousel-item, #mainBannerCarousel img {
+    height: clamp(240px, 40vh, 400px);
+  }
+}
+
+@media (max-width: 992px) {
+  #mainBannerCarousel.carousel, #mainBannerCarousel .carousel-item, #mainBannerCarousel img {
+    height: clamp(220px, 35vh, 350px);
+  }
+}
+
+@media (max-width: 768px) {
+  #mainBannerCarousel.carousel, #mainBannerCarousel .carousel-item, #mainBannerCarousel img {
+    height: clamp(200px, 30vh, 300px);
+  }
+}
+
+@media (max-width: 576px) {
+  #mainBannerCarousel.carousel, #mainBannerCarousel .carousel-item, #mainBannerCarousel img {
+    height: clamp(180px, 25vh, 250px);
+  }
+}
+
+@media (max-width: 360px) {
+  #mainBannerCarousel.carousel, #mainBannerCarousel .carousel-item, #mainBannerCarousel img {
+    height: clamp(160px, 20vh, 200px);
+  }
+}

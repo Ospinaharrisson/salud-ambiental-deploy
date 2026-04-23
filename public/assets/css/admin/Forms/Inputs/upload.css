@@ -1,0 +1,131 @@
+.file-upload-wrapper {
+  border: 2px dashed #1e80e8;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #f1f8fe;
+  color: #1e80e8;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.file-upload-wrapper:hover,
+.file-upload-wrapper:focus {
+  background-color: #dfedfc;
+  border-color: #1e80e8;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file-upload-text {
+  font-weight: 600;
+  pointer-events: none;
+  white-space: pre-wrap;
+}
+
+.file-upload-wrapper.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.file-upload-wrapper i {
+  color: #1e80e8;
+  font-size: 50px;
+}
+
+.file-upload-wrapper.dragover {
+  background-color: #c4c4ff;
+  border-color: #3a3af3;
+}
+
+.upload-button {
+  padding: 8px 16px;
+  min-width: 150px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #1e80e8;
+  border: 2px solid #1e80e8;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.upload-button:hover {
+  background-color: #1e80e8;
+  box-shadow: 0px 4px 8px rgb(37 128 232 / 48%);
+}
+
+.file-list li {
+  animation: fadeSlideDown 0.5s ease forwards;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background-color: #e9f0ff;
+  border: 1px solid #5a5af3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.file-list li.invalid {
+  border: 2px solid #dc3545;
+  background-color: #f8d7da;
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.file-list .content {
+  flex-grow: 1;
+  padding-left: 0.5rem;
+}
+
+.file-list .content label {
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.file-list .content small {
+  display: block;
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+.button-delete {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  user-select: none;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.button-delete:hover {
+  color: #a71d2a;
+}
