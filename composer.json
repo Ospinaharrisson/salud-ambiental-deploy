@@ -30,9 +30,9 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/Helpers/Admin/helpers.php",
-            "app/Helpers/Shared/helpers.php",
-            "app/Helpers/User/helpers.php",
+            "app/Helpers/Admin/Helpers.php",
+            "app/Helpers/Shared/Helpers.php",
+            "app/Helpers/User/Helpers.php",
             "app/Helpers/Admin/CurrentModule.php"
         ]
     },
