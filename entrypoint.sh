@@ -1,27 +1,5 @@
 #!/bin/bash
 set -e
 
-# Eliminar Procfile si existe
-rm -f /var/www/html/Procfile
-
-echo "Iniciando Laravel..."
-
-# Limpiar cachés previos
-php artisan config:clear || true
-php artisan cache:clear || true
-php artisan view:clear || true
-
-# Ejecutar migraciones
-php artisan migrate --force || echo "Migraciones fallaron o no configuradas"
-
-# Crear enlace simbólico de storage
-php artisan storage:link || true
-
-# Optimizar para producción
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
-
-echo "Laravel listo. Iniciando Apache..."
-
+echo "Iniciando Apache..."
 exec apache2-foreground
