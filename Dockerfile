@@ -38,4 +38,5 @@ RUN chmod -R 775 storage bootstrap/cache
 
 EXPOSE 80
 RUN chmod +x /var/www/html/entrypoint.sh
+RUN rm -f /var/www/html/Procfile
 CMD ["/var/www/html/entrypoint.sh"]
