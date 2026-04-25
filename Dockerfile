@@ -1,7 +1,8 @@
-FROM php:8.1-apache
+FROM php:8.1-fpm
 
-# Instalar dependencias del sistema
+# Instalar nginx y dependencias
 RUN apt-get update && apt-get install -y \
+    nginx \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
@@ -19,24 +20,23 @@ RUN apt-get update && apt-get install -y \
 # Instalar Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Corregir MPM de Apache y habilitar rewrite
-RUN a2dismod mpm_event && a2enmod mpm_prefork && a2enmod rewrite
-
-# Configurar Apache para Laravel
-ENV APACHE_DOCUMENT_ROOT /var/www/html/public
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+# Configurar nginx
+RUN echo 'server { \n\
+    listen 80; \n\
+    root /var/www/html/public; \n\
+    index index.php; \n\
+    location / { try_files $uri $uri/ /index.php?$query_string; } \n\
+    location ~ \.php$ { fastcgi_pass 127.0.0.1:9000; fastcgi_index index.php; include fastcgi_params; fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; } \n\
+}' > /etc/nginx/sites-available/default
 
 WORKDIR /var/www/html
-
 COPY . .
-
 RUN rm -f Procfile
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs
 
 RUN chown -R www-data:www-data storage bootstrap/cache
 RUN chmod -R 775 storage bootstrap/cache
-RUN chmod +x entrypoint.sh
 
 EXPOSE 80
-CMD ["/var/www/html/entrypoint.sh"]
+CMD service nginx start && php-fpm
