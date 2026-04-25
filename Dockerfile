@@ -19,28 +19,24 @@ RUN apt-get update && apt-get install -y \
 # Instalar Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
+# Corregir MPM de Apache y habilitar rewrite
+RUN a2dismod mpm_event && a2enmod mpm_prefork && a2enmod rewrite
+
 # Configurar Apache para Laravel
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
-RUN a2dismod mpm_event mpm_worker || true \
-    && a2enmod mpm_prefork rewrite
 
 WORKDIR /var/www/html
 
-# Copiar proyecto
 COPY . .
 
-# Eliminar Procfile para que Railway no lo lea
 RUN rm -f Procfile
 
-# Instalar dependencias Laravel
 RUN composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs
 
-# Permisos
 RUN chown -R www-data:www-data storage bootstrap/cache
 RUN chmod -R 775 storage bootstrap/cache
+RUN chmod +x entrypoint.sh
 
 EXPOSE 80
-RUN chmod +x /var/www/html/entrypoint.sh
-RUN rm -f /var/www/html/Procfile
 CMD ["/var/www/html/entrypoint.sh"]
