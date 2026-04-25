@@ -29,6 +29,9 @@ WORKDIR /var/www/html
 # Copiar proyecto
 COPY . .
 
+# Eliminar Procfile para que Railway no lo lea
+RUN rm -f Procfile
+
 # Instalar dependencias Laravel
 RUN composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs
 
