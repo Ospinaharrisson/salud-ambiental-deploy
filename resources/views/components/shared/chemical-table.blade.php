@@ -108,7 +108,7 @@
                                     Ver
                             </button>
                             @if($actionsEnabled)
-                                @include('Components.Shared.Includes.table-actions')
+                                @include('components.shared.includes.table-actions')
                             @endif
                         </div>
                     </td>
