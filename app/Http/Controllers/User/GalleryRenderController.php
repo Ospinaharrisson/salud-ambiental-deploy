@@ -16,6 +16,6 @@ class GalleryRenderController extends Controller
     public function show($id)
     {
         $gallery = GalleryEvent::with(['images' => function($q) { $q->where('is_active', true)->orderBy('order'); }])->findOrFail($id);
-        return view('User.Content.galleries.gallery-template', compact('gallery'));
+        return view('User.Content.Galleries.gallery-template', compact('gallery'));
     }
 }
