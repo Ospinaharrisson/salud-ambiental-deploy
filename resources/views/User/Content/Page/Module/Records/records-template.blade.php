@@ -33,7 +33,7 @@
                 {!! $page->description !!}
             </div>
 
-            @livewire('shared.table.chemical-table', ['pageRecordId' => $page->id, 'theme' => $theme, 'showAllElements' => false])
+            @livewire('shared.table.chemical-table', ['module' => $page->module ?? null, 'pageRecordId' => $page->id, 'theme' => $theme, 'showAllElements' => false])
             @include('User.Content.Page.Module.Shared.Buttons.page-buttons')
         </div>
     </div>
