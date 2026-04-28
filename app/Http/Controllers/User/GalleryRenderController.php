@@ -10,7 +10,7 @@ use App\Models\Shared\Home\GalleryEvent;
 class GalleryRenderController extends Controller
 {
     public function index() {
-        return view('User.Content.galleries.gallery-home');
+        return view('User.Content.Galleries.gallery-home');
     }
 
     public function show($id)
