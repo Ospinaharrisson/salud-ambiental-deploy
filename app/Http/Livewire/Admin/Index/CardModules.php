@@ -34,6 +34,6 @@ class CardModules extends Component
             ['path' => request()->url(), 'query' => request()->query()]
         );
 
-        return view('Admin.Components.index.Main.card-modules', ['modules' => $paginatedModules]);
+        return view('Admin.Components.Index.Main.card-modules', ['modules' => $paginatedModules]);
     }
 }
