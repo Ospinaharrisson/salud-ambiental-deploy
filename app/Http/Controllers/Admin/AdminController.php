@@ -47,7 +47,7 @@ class AdminController extends Controller
 
     public function homeModuleView()
     {        
-        return view('admin.components.index.home');
+        return view('Admin.Components.Index.home');
     }
 
 
