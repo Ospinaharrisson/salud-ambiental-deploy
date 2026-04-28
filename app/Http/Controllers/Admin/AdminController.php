@@ -53,6 +53,6 @@ class AdminController extends Controller
 
     public function themesModuleView(Module $module)
     {
-        return view('Admin.Components.Index.Themes', compact('module'));
+        return view('Admin.Components.Index.themes', compact('module'));
     }
 }
