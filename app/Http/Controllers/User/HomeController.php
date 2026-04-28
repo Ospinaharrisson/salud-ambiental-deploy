@@ -20,6 +20,7 @@ class HomeController extends Controller
         $data = $this->homeRenderService->getHomeData();
         return view("User.Components.Index.home", $data);
     }
+    
 
     public function createMessage(Request $request)
     {
