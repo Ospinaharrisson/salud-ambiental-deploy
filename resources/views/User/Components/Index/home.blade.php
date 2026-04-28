@@ -12,6 +12,6 @@
 
     @include('User.Content.News.news')
     @include('User.Content.Galleries.gallery')
-    @include('User.Content.information.page-info')
+    @include('User.Content.Information.page-info')
     @include('User.Content.content-media.content')
 @endsection
