@@ -1,3 +1,11 @@
+:root {
+    --today-color: #b1deef;  
+}
+
+body.app-contrast {
+    --today-color: #6d6b6b;
+}
+
 .forecast-calendar-container {
     display: flex;
     flex-direction: column;
@@ -12,7 +20,7 @@
 
 .forecast-calendar-title {
     padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2.5vw, 20px);
-    background-color: #268aa3;
+    background-color: var(--primary-color);
     height: clamp(36px, 6vh, 50px);
     flex: 0 0 8%;
     display: flex;
@@ -93,8 +101,12 @@
     height: clamp(240px, 40vh, 320px);
 }
 
+.fc-daygrid-day {
+    background-color: var(--body-bg-contrast);
+}
+
 .fc-day-today {
-    background-color: #b1deef !important;
+    background-color: var(--today-color) !important;
 }
 
 

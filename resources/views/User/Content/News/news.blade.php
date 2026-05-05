@@ -4,8 +4,8 @@
 @endpush
 
 @if(isset($articles) && $articles->count())
-    <div class="card">
-        <div class="card-header" style="background-color: var(--primary-color);">
+    <div class="content-card card">
+        <div class="card-header">
             <h2 class="news-title">Noticias</h2>
         </div>
 
@@ -26,8 +26,8 @@
             </div>
         </div>
 
-        <div class="card-footer d-flex justify-content-start mt-2 p-3">
-            <a href="{{ route('articles.index') }}" class="btn btn-outline-primary">Ver más información</a>
+        <div class="card-footer d-flex justify-content-start p-3">
+            <a href="{{ route('articles.index') }}" class="btn content-button">Ver más información</a>
         </div>
     </div>
 @endif

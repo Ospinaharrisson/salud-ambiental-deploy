@@ -48,7 +48,6 @@
     left: 1rem;
     font-size: clamp(12px, 5cqw, 32px);
     z-index: 2;
-    color: white;
 }
 
 .blocks .block:hover {

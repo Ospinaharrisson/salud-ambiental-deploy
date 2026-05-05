@@ -4,7 +4,7 @@
 ==========================================================================*/
 
 .establishment-content {
-    background-color: #f0f7f9;
+    background-color: var(--surface-bg);
     padding-bottom: 20px;
     margin-bottom: 30px;
 }

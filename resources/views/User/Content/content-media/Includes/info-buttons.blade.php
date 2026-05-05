@@ -20,12 +20,12 @@
     </div>
     @if($points->isNotEmpty())
         <div class="card card-info flex-grow-0" style="flex-basis: 70%;">
-            <div class="card-header text-center">
+            <div class="card-header text-center" style="background-color: var(--primary-color);">
                 <h2 class="media-card-title">
                     Ubica los puntos de recolección
                 </h2>
             </div>
-            <div class="card-body d-flex flex-column justify-content-between" style="padding: 0">
+            <div class="card-body d-flex flex-column justify-content-between" style="padding: 0; background-color: var(--body-bg-contrast)">
                 <div class="card-body" style="overflow: hidden;">
                     <div class="points-grid">
                         @for($i = 1; $i <= 4; $i++)

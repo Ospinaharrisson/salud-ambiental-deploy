@@ -1,4 +1,12 @@
+:root {
+  --today-title-color: #268aa3;
+  --today-text-color: #268aa3;  
+}
 
+body.app-contrast {
+    --today-title-color: #6d6b6b;
+    --today-text-color: #ffffff;
+}
 
 .fc-scrollgrid-sync-inner,
 .fc-scrollgrid-sync-inner:hover {
@@ -14,7 +22,7 @@
 }
 
 .fc-col-header-cell-cushion {
-  color: #268aa3;
+  color: var(--today-title-color);
 }
 
 .fc-day-other {
@@ -22,7 +30,7 @@
 }
 
 .fc-daygrid-day-number {
-  color: #268aa3;
+  color: var(--today-text-color);
 }
 
 .fc-event {
@@ -38,4 +46,3 @@
   font-weight: 500;
   font-size: 12px;
 }
-

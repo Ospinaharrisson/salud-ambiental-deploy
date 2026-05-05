@@ -3,7 +3,7 @@
 @endpush
 
 @if(isset($galleries) && $galleries->count())
-    <div class="card my-4">
+    <div class="content-card card my-4">
         <div class="card-header" style="background-color: var(--primary-color);">
             <h2 class="gallery-title">Galería</h2>
         </div>
@@ -29,8 +29,8 @@
             </div>
         </div>
 
-        <div class="card-footer d-flex justify-content-start mt-2 p-3">
-            <a href="{{ route('galleries.index') }}" class="btn btn-outline-primary">Ver todas las galerías</a>
+        <div class="card-footer d-flex justify-content-start p-3">
+            <a href="{{ route('galleries.index') }}" class="btn content-button">Ver todas las galerías</a>
         </div>
     </div>
 @endif

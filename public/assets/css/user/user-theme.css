@@ -5,7 +5,13 @@
   --primary-color: #268AA3;
   --secondary-color: #4ABFE3;
   --body-bg: #ffffff;
-  --body-bg-contrast: #fff;
+  --body-bg-contrast: #f8f8f8;
+
+  --button-color: #268AA3;
+  --button-hover-color: #2bbdea;
+  --border-color: #d2d2d2;
+  
+  --surface-bg: #f0f7f9;
 
   --font-color: inherit;
   --font-scale: 1;
@@ -16,7 +22,12 @@ body.app-contrast {
   --secondary-color: #292929;
 
   --body-bg: #514d4d;
-  --body-bg-contrast: #696767;
+  --body-bg-contrast: #575656;
+
+  --surface-bg: #6d6b6b;
+  
+  --button-color: #fff;
+  --border-color: #fff;
 
   --font-color: #fff;
 }
@@ -34,7 +45,8 @@ body.is-mobile * {
 = Temas: Estilos Globales por Categoría Visual
 ==========================================================================*/
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -49,8 +61,8 @@ body {
 }
 
 .ql-editor {
-  min-height: auto !important;  
-  height: auto !important;      
+  min-height: auto !important;
+  height: auto !important;
   padding: 12px 15px !important;
   overflow-x: hidden !important;
 }
@@ -90,6 +102,34 @@ body {
   color: var(--primary-color);
   letter-spacing: 4px;
 }
+
+/*----------------------------------------------------------------------
+| noticias - galeria
+----------------------------------------------------------------------*/
+
+.content-card .card-header {
+  background-color: var(--primary-color);
+}
+
+.content-card .card-body,
+.content-card .card-footer {
+  background-color: var(--body-bg-contrast);
+}
+
+.content-card .card-footer {
+  border-color: var(--border-color);
+}
+
+.content-button {
+  color: var(--button-color);
+  border-color: var(--button-color);
+}
+
+.content-button:hover {
+  color: var(--button-hover-color);
+  border-color: var(--button-hover-color);
+}
+
 
 /*----------------------------------------------------------------------
 | Animaciones
