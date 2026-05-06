@@ -2,10 +2,8 @@
    Variables
    ========================================================================== */
 :root {
-  --border-color: #fff;
   --nav-text-color: rgb(200, 238, 255);
   --nav-text-color-hover: #019ee2;
-  --white-color: #ffffff;
   --dropdown-text-color: #019ee2;
   --dropdown-border-color: #dee2e6;
   --dropdown-hover-bg: #f1f1f1;
@@ -20,8 +18,7 @@
   --search-placeholder-size: clamp(0.9rem, 1vw, 0.9rem);
 }
 
-body.app-contrast {
-  --border-color: #fff;
+html.app-contrast {
   --nav-text-color: #fff;
   --nav-text-color-hover: #191919;
   --dropdown-text-color: #000000;
@@ -55,7 +52,7 @@ nav .navbar {
   justify-content: center;
   align-items: stretch;
   min-height: 130px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid #fff;
 }
 
 #main-navbar {
@@ -112,7 +109,7 @@ nav .navbar {
   width: 100%;
   height: 0%;
   border-radius: 10px 10px 0 0;
-  background: var(--white-color);
+  background: #fff;
   z-index: 0;
   transition: height 0.4s ease-in-out;
 }

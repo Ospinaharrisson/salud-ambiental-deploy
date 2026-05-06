@@ -2,7 +2,7 @@
     --forecast-color: #268aa357;
 }
 
-body.app-contrast {
+html.app-contrast {
     --forecast-color: #1363778e;
 }
 

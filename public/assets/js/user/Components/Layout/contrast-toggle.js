@@ -1,15 +1,15 @@
-document.getElementById("toggle-contrast").addEventListener("click", () => {
-  document.body.classList.toggle("app-contrast");
-        
-  if (document.body.classList.contains("app-contrast")) {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
-  }
-});
+const toggle = document.getElementById("toggle-contrast");
 
-window.addEventListener("DOMContentLoaded", () => {
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("app-contrast");
-  }
-});
+if (toggle) {
+  toggle.addEventListener("click", () => {
+    const root = document.documentElement;
+
+    root.classList.toggle("app-contrast");
+
+    if (root.classList.contains("app-contrast")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  });
+}

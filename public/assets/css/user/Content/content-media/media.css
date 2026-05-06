@@ -1,6 +1,19 @@
 /*==========================================================================
 = Estilos Contenido media (versión responsive con vh/vw)
 ==========================================================================*/
+:root {
+    --question-background-color: #33cbcc;
+    --info-background-color: #0072bb;
+    --point-box-bg: #fff;
+    --point-box-border: transparent;
+}
+
+html.app-contrast {
+    --question-background-color: #1f2020;
+    --info-background-color: #414243;
+    --point-box-bg: #6d6b6b;
+    --point-box-border: #fff;
+}
 
 /*----------------------------------------------------------------------
 | Contenido principal
@@ -89,8 +102,9 @@
     color: #333;
     font-weight: bold;
     font-size: clamp(0.9rem, 1.8vh, 1.1rem);
+    border: 1px solid var(--point-box-border);
     border-radius: 0.8vh;    
-    background-color: #fff;
+    background-color: var(--point-box-bg);
     box-shadow: 0 0 1.2vh rgba(0, 0, 0, 0.15);
     transition: all 0.25s ease;
     overflow: hidden; 
@@ -198,9 +212,9 @@
 }
 
 .media-btn-question {
-    background-color: #33cbcc;
+    background-color: var(--question-background-color);
 }
 
 .media-btn-info {
-    background-color: #0072bb;
+    background-color: var(--info-background-color);
 }

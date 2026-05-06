@@ -1,9 +1,10 @@
 :root {
-    --today-color: #b1deef;  
+    --today-color: #b1deef;
 }
 
-body.app-contrast {
+html.app-contrast {
     --today-color: #6d6b6b;
+    --fc-event-border-color: #ffffff;
 }
 
 .forecast-calendar-container {
@@ -18,6 +19,24 @@ body.app-contrast {
     overflow-y: scroll
 }
 
+.fc .fc-list-sticky .fc-list-day>* {
+    background-color: var(--today-color) !important;
+}
+
+.fc-list-event-time,
+.fc-list-event-graphic,
+.fc-list-event-title {
+    background-color: var(--body-bg-contrast) !important;
+}
+
+.fc .fc-event {
+    font-size: clamp(12px * var(--font-scale), 1.2vw * var(--font-scale), 16px * var(--font-scale)) !important;
+}
+
+.fc-list-event-dot {
+    border: calc(var(--fc-list-event-dot-width)/3) solid var(--fc-event-border-color) !important;
+}
+
 .forecast-calendar-title {
     padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2.5vw, 20px);
     background-color: var(--primary-color);
@@ -27,11 +46,19 @@ body.app-contrast {
     align-items: center;
 }
 
-.forecast-calendar-title > h1 {
-    font-size: clamp(12px, 2vw, 24px);
+.forecast-calendar-title>h1 {
+    font-size: clamp(10px * var(--font-scale), 1.6vw * var(--font-scale), 22px * var(--font-scale));
     font-weight: 900;
     color: white;
     margin: 0;
+}
+
+.fc-list-day-text,
+.fc-list-day-side-text {
+    font-size: clamp(12px * var(--font-scale), 1.2vw * var(--font-scale), 16px * var(--font-scale)) !important;
+    color: #fff;
+    font-style: normal;
+    text-decoration: none;
 }
 
 .fc .fc-toolbar.fc-header-toolbar {
@@ -40,11 +67,11 @@ body.app-contrast {
 }
 
 .fc-toolbar-title {
-    font-size: clamp(16px, 1.75vw, 64px) !important;
+    font-size: clamp(14px * var(--font-scale), 1.6vw * var(--font-scale), 52px * var(--font-scale)) !important;
 }
 
 .fc-button {
-    font-size: clamp(12px, 1vw, 18px) !important;
+    font-size: clamp(10px * var(--font-scale), 1vw * var(--font-scale), 18px * var(--font-scale)) !important;
 }
 
 .forecast-calendar-content {
@@ -91,14 +118,29 @@ body.app-contrast {
 | Modal
 ----------------------------------------------------------------------*/
 
+.modal-header {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
 .calendar-event-title {
-    font-size: clamp(18px, 2.5vw, 24px);
+    font-size: clamp(18px * var(--font-scale), 2.5vw * var(--font-scale), 24px * var(--font-scale));
     font-weight: bold;
+}
+
+.calendar-modal-body {
+    padding: clamp(15px, 2vw, 30px);
+    display: flex;
+    flex-direction: column;
 }
 
 .calendar-modal-image {
     width: 100%;
     height: clamp(240px, 40vh, 320px);
+}
+
+.calendar-modal-footer {
+    background-color: var(--modal-bg);
 }
 
 .fc-daygrid-day {
@@ -117,57 +159,171 @@ body.app-contrast {
 }
 
 @media (min-width: 769px) and (max-width: 880px) {
-    .forecast-calendar-title { flex: 0 0 10%; font-size: clamp(1rem, 1.4vw, 1.15rem); padding: clamp(8px,1vw,10px); height: clamp(34px,5.5vh,46px); }
-    .forecast-calendar-content { padding: clamp(10px,1.2vw,14px); }
-    .fc .fc-toolbar-title { font-size: clamp(1.05rem, 1.6vw, 1.25rem) !important; }
-    .fc-view-harness.fc-view-harness-passive { height: auto; }
-    .fc .fc-event .fc-event-title { font-size: clamp(0.85rem, 1.1vw, 0.95rem); }
+    .forecast-calendar-title {
+        flex: 0 0 10%;
+        font-size: clamp(1rem, 1.4vw, 1.15rem);
+        padding: clamp(8px, 1vw, 10px);
+        height: clamp(34px, 5.5vh, 46px);
+    }
+
+    .forecast-calendar-content {
+        padding: clamp(10px, 1.2vw, 14px);
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: clamp(1.05rem, 1.6vw, 1.25rem) !important;
+    }
+
+    .fc-view-harness.fc-view-harness-passive {
+        height: auto;
+    }
+
+    .fc .fc-event .fc-event-title {
+        font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+    }
 }
 
 @media (min-width: 881px) and (max-width: 992px) {
-    .forecast-calendar-title { flex: 0 0 10%; font-size: clamp(1.05rem, 1.5vw, 1.2rem); padding: clamp(9px,1.2vw,11px); height: clamp(36px,5.8vh,48px); }
-    .forecast-calendar-content { padding: clamp(11px,1.3vw,15px); }
-    .fc .fc-toolbar-title { font-size: clamp(1.1rem, 1.7vw, 1.3rem) !important; }
-    .fc-view-harness.fc-view-harness-passive { height: auto; }
-    .fc .fc-event .fc-event-title { font-size: clamp(0.9rem, 1.15vw, 1rem); }
+    .forecast-calendar-title {
+        flex: 0 0 10%;
+        font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+        padding: clamp(9px, 1.2vw, 11px);
+        height: clamp(36px, 5.8vh, 48px);
+    }
+
+    .forecast-calendar-content {
+        padding: clamp(11px, 1.3vw, 15px);
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: clamp(1.1rem, 1.7vw, 1.3rem) !important;
+    }
+
+    .fc-view-harness.fc-view-harness-passive {
+        height: auto;
+    }
+
+    .fc .fc-event .fc-event-title {
+        font-size: clamp(0.9rem, 1.15vw, 1rem);
+    }
 }
 
 @media (min-width: 993px) and (max-width: 1100px) {
-    .forecast-calendar-title { font-size: clamp(1.15rem, 1.6vw, 1.3rem); padding: clamp(10px,1.4vw,12px); height: clamp(38px,6vh,50px); }
-    .forecast-calendar-content { padding: clamp(12px,1.4vw,16px); }
-    .fc .fc-toolbar-title { font-size: clamp(1.15rem, 1.8vw, 1.35rem) !important; }
-    .fc-view-harness.fc-view-harness-passive { height: auto; }
-    .fc .fc-event .fc-event-title { font-size: clamp(0.95rem, 1.2vw, 1.05rem); }
+    .forecast-calendar-title {
+        font-size: clamp(1.15rem, 1.6vw, 1.3rem);
+        padding: clamp(10px, 1.4vw, 12px);
+        height: clamp(38px, 6vh, 50px);
+    }
+
+    .forecast-calendar-content {
+        padding: clamp(12px, 1.4vw, 16px);
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: clamp(1.15rem, 1.8vw, 1.35rem) !important;
+    }
+
+    .fc-view-harness.fc-view-harness-passive {
+        height: auto;
+    }
+
+    .fc .fc-event .fc-event-title {
+        font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+    }
 }
 
 @media (min-width: 1101px) and (max-width: 1200px) {
-    .forecast-calendar-title { font-size: clamp(1.2rem, 1.7vw, 1.35rem); padding: clamp(11px,1.5vw,13px); height: clamp(40px,6.2vh,52px); }
-    .forecast-calendar-content { padding: clamp(13px,1.5vw,18px); }
-    .fc .fc-toolbar-title { font-size: clamp(1.2rem, 1.9vw, 1.45rem) !important; }
-    .fc-view-harness.fc-view-harness-passive { height: auto; }
-    .fc .fc-event .fc-event-title { font-size: clamp(1rem, 1.25vw, 1.1rem); }
+    .forecast-calendar-title {
+        font-size: clamp(1.2rem, 1.7vw, 1.35rem);
+        padding: clamp(11px, 1.5vw, 13px);
+        height: clamp(40px, 6.2vh, 52px);
+    }
+
+    .forecast-calendar-content {
+        padding: clamp(13px, 1.5vw, 18px);
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: clamp(1.2rem, 1.9vw, 1.45rem) !important;
+    }
+
+    .fc-view-harness.fc-view-harness-passive {
+        height: auto;
+    }
+
+    .fc .fc-event .fc-event-title {
+        font-size: clamp(1rem, 1.25vw, 1.1rem);
+    }
 }
 
 @media (min-width: 1201px) and (max-width: 1280px) {
-    .forecast-calendar-title { font-size: clamp(1.25rem, 1.8vw, 1.45rem); padding: clamp(12px,1.6vw,14px); height: clamp(42px,6.5vh,54px); }
-    .forecast-calendar-content { padding: clamp(14px,1.6vw,20px); }
-    .fc .fc-toolbar-title { font-size: clamp(1.25rem, 2vw, 1.5rem) !important; }
-    .fc-view-harness.fc-view-harness-passive { height: auto; }
-    .fc .fc-event .fc-event-title { font-size: clamp(1.05rem, 1.3vw, 1.15rem); }
+    .forecast-calendar-title {
+        font-size: clamp(1.25rem, 1.8vw, 1.45rem);
+        padding: clamp(12px, 1.6vw, 14px);
+        height: clamp(42px, 6.5vh, 54px);
+    }
+
+    .forecast-calendar-content {
+        padding: clamp(14px, 1.6vw, 20px);
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: clamp(1.25rem, 2vw, 1.5rem) !important;
+    }
+
+    .fc-view-harness.fc-view-harness-passive {
+        height: auto;
+    }
+
+    .fc .fc-event .fc-event-title {
+        font-size: clamp(1.05rem, 1.3vw, 1.15rem);
+    }
 }
 
 @media (min-width: 1281px) and (max-width: 1365px) {
-    .forecast-calendar-title { font-size: clamp(1.3rem, 1.9vw, 1.55rem); padding: clamp(13px,1.6vw,16px); height: clamp(44px,6.8vh,56px); }
-    .forecast-calendar-content { padding: clamp(15px,1.6vw,22px); }
-    .fc .fc-toolbar-title { font-size: clamp(1.3rem, 2.1vw, 1.6rem) !important; }
-    .fc-view-harness.fc-view-harness-passive { height: auto; }
-    .fc .fc-event .fc-event-title { font-size: clamp(1.1rem, 1.35vw, 1.2rem); }
+    .forecast-calendar-title {
+        font-size: clamp(1.3rem, 1.9vw, 1.55rem);
+        padding: clamp(13px, 1.6vw, 16px);
+        height: clamp(44px, 6.8vh, 56px);
+    }
+
+    .forecast-calendar-content {
+        padding: clamp(15px, 1.6vw, 22px);
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: clamp(1.3rem, 2.1vw, 1.6rem) !important;
+    }
+
+    .fc-view-harness.fc-view-harness-passive {
+        height: auto;
+    }
+
+    .fc .fc-event .fc-event-title {
+        font-size: clamp(1.1rem, 1.35vw, 1.2rem);
+    }
 }
 
 @media (min-width: 1366px) and (max-width: 1400px) {
-    .forecast-calendar-title { font-size: clamp(1.35rem, 2vw, 1.6rem); padding: clamp(14px,1.7vw,18px); height: clamp(46px,7vh,60px); }
-    .forecast-calendar-content { padding: clamp(16px,1.7vw,24px); }
-    .fc .fc-toolbar-title { font-size: clamp(1.35rem, 2.2vw, 1.65rem) !important; }
-    .fc-view-harness.fc-view-harness-passive { height: auto; }
-    .fc .fc-event .fc-event-title { font-size: clamp(1.15rem, 1.4vw, 1.25rem); }
+    .forecast-calendar-title {
+        font-size: clamp(1.35rem, 2vw, 1.6rem);
+        padding: clamp(14px, 1.7vw, 18px);
+        height: clamp(46px, 7vh, 60px);
+    }
+
+    .forecast-calendar-content {
+        padding: clamp(16px, 1.7vw, 24px);
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: clamp(1.35rem, 2.2vw, 1.65rem) !important;
+    }
+
+    .fc-view-harness.fc-view-harness-passive {
+        height: auto;
+    }
+
+    .fc .fc-event .fc-event-title {
+        font-size: clamp(1.15rem, 1.4vw, 1.25rem);
+    }
 }

@@ -27,9 +27,11 @@ class CalendarDataController extends Controller
                     'id' => $event->id,
                     'title' => $event->name,
                     'start' => $event->date,
-                    'image' => !empty($event->image) ? renderBase64Image($event->image) : null, 
-                    'urlPath' => $urlPath,
                     'allDay' => true,
+                    'extendedProps' => [
+                        'image' => !empty($event->image) ? renderBase64Image($event->image) : null,
+                        'url' => $urlPath,
+                    ]
                 ];
             });
 

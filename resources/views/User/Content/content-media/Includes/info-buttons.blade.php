@@ -19,7 +19,7 @@
         @endif
     </div>
     @if($points->isNotEmpty())
-        <div class="card card-info flex-grow-0" style="flex-basis: 70%;">
+        <div class="card overflow-hidden flex-grow-0" style="flex-basis: 70%;">
             <div class="card-header text-center" style="background-color: var(--primary-color);">
                 <h2 class="media-card-title">
                     Ubica los puntos de recolección
@@ -28,34 +28,28 @@
             <div class="card-body d-flex flex-column justify-content-between" style="padding: 0; background-color: var(--body-bg-contrast)">
                 <div class="card-body" style="overflow: hidden;">
                     <div class="points-grid">
-                        @for($i = 1; $i <= 4; $i++)
+                        @foreach($points->values() as $index => $point)
                             @php
-                                $point = $points->firstWhere('order', $i);
+                                $position = $index + 1;
+                        
+                                $href = $point->link ?? null;
+                                if (!$href && !empty($point->mime_type) && !empty($point->content_base64)) {
+                                    $href = generateBlankLink($point->content_base64, $point->mime_type);
+                                }
                             @endphp
-    
-                            @if($point)
-                                @php
-                                    $href = $point->link ?? null;
-                                    if (!$href && !empty($point->mime_type) && !empty($point->content_base64)) {
-                                        $href = generateBlankLink($point->content_base64, $point->mime_type);
-                                    }
-                                @endphp
+                        
+                            <div class="point-box point-{{ $position }}">
+                                @if($href)
+                                    <a href="{{ $href }}" target="_blank">
+                                @endif
                                 
-                                <div class="point-box point-{{ $i }}">
-                                    @if($href)
-                                        <a href="{{ $href }}" target="_blank">
-                                    @endif
-                                    
-                                    <img src="{{ renderBase64Image($point->image) }}" alt="{{ $point->name }}">
-
-                                    @if($href)
-                                        </a>
-                                    @endif
-                                </div>
-                            @else
-                                <div class="point-box point-{{ $i }}" style="visibility: hidden;"></div>
-                            @endif
-                        @endfor
+                                <img src="{{ renderBase64Image($point->image) }}" alt="{{ $point->name }}">
+                        
+                                @if($href)
+                                    </a>
+                                @endif
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

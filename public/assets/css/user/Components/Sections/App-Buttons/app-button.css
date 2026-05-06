@@ -11,7 +11,7 @@
     --box-shadow: 1px 0 1px var(--box-shadow-color);
 }
 
-body.app-contrast {
+html.app-contrast {
     --app-button-color: #484747;
     --contrast-button-color: #1b1b1b;
 }

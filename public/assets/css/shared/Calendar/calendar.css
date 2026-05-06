@@ -3,7 +3,7 @@
   --today-text-color: #268aa3;  
 }
 
-body.app-contrast {
+html.app-contrast {
     --today-title-color: #6d6b6b;
     --today-text-color: #ffffff;
 }

@@ -9,6 +9,16 @@
 
     <title>@yield('title', 'Salud Ambiental')</title>
 
+    <script>
+        (function () {
+          const theme = localStorage.getItem("theme");
+        
+          if (theme === "dark") {
+            document.documentElement.classList.add("app-contrast");
+          }
+        })();
+    </script>
+    
     @include('Shared.Imports.css-imports')
 
     <link rel="stylesheet" type="text/css" media="screen" href="{{asset('assets/css/user/user-theme.css')}}" />

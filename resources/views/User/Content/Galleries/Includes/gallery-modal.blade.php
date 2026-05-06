@@ -2,12 +2,12 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             
-            <div class="modal-header d-flex justify-content-around align-items-center">
+            <div class="app-modal-header modal-header d-flex justify-content-around align-items-center">
                 <h5 class="calendar-event-title" id="galleryTitle">{{ $gallery->name }}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                <button type="button" class="app-modal-close btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
 
-            <div class="modal-body">
+            <div class="app-modal-body modal-body">
                 
                 @if($gallery->date)
                     <small class="text-muted gallery-date d-block mb-2">Fecha del evento: {{ $gallery->date }}</small>
