@@ -1,0 +1,72 @@
+/*==========================================================================*/
+/*======================== Lista de Información =============================*/
+/*==========================================================================*/
+
+.content-list-link {
+    text-decoration: none;
+}
+
+.content-list-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 100%;
+    padding: 1.5rem;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background-color: var(--body-bg-contrast);
+}
+
+.content-list-image-wrapper {
+    flex-basis: 20%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-list-body {
+    flex-basis: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.content-list-image {
+    width: 100%;
+    max-width: 280px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.content-list-title {
+    flex-basis: 20%;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--font-color);
+}
+
+.content-list-description {
+    flex-basis: 80%;
+    margin-bottom: 0;
+    overflow: hidden;
+
+    color: var(--font-color);
+    opacity: 0.8;
+
+    line-height: 1.6;
+}
+
+/*----------------------------------------------------------------------*/
+/* Hover
+/*----------------------------------------------------------------------*/
+
+.content-list-card:hover {
+    transform: translateY(-2px);
+}

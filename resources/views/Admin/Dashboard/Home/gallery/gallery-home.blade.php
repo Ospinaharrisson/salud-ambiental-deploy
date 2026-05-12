@@ -26,11 +26,11 @@
                 'width' => '30%'
             ],
             [
-                'label' => 'Ultima modificación',
+                'label' => 'Fecha del evento',
                 'width' => '20%'
             ],
         ]"
-        :fields="['name', 'updated_at']"
+        :fields="['name', 'date']"
         :actions="[
             'enabled' => true,
             'buttons' => [

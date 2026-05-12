@@ -2,27 +2,31 @@
 <div>
     <nav class="app-buttons-container">
         @foreach($appButtons as $button)
-            @php
-                $href = $button->link ?? null;
-                if (!$href && !empty($button->mime_type) && !empty($button->content_base64)) {
-                    $href = generateBlankLink($button->content_base64, $button->mime_type);
-                }
-            @endphp
-            
-            @if ($href)
-                <div class="app-button" style="--button-color: {{ $button->theme }}">
-                    <a href="{{ $href }}" class="app-icon" target="_blank">
-                        <img src="{{ renderBase64Image($button->image) }}"
-                            alt="{{ $button->name }}">
-                    </a>
+            <div class="app-button" style="--button-color: {{ $button->theme }}">
+                <a href="#" 
+                    class="app-icon dynamic-link" 
+                    data-link="{{ $button->link }}" 
+                    data-model="AppButton"
+                    data-id="{{ $button->id }}" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img src="{{ renderBase64Image($button->image) }}"
+                        alt="{{ $button->name }}">
+                </a>
 
-                    <div class="app-button-info">
-                        <a href="{{ $href }}" class="app-button-label">
-                            {{ \Illuminate\Support\Str::limit($button->name, 10, '') }}
-                        </a>
-                    </div>
-                </div>            
-            @endif
+                <div class="app-button-info">
+                    <a href="#" 
+                        class="app-button-label dynamic-link"
+                        data-link="{{ $button->link }}" 
+                        data-model="AppButton"
+                        data-id="{{ $button->id }}" 
+                        target="_blank"
+                    >
+                        {{ \Illuminate\Support\Str::limit($button->name, 10, '') }}
+                    </a>
+                </div>
+            </div>            
         @endforeach
     </nav>
     

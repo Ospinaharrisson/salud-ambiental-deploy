@@ -18,7 +18,7 @@
         ])
     </div>
 
-    @if($modules->count())
+    @if($modules->isNotEmpty())
         <div class="my-5">
             @foreach($modules as $module)
                 @php
@@ -26,7 +26,7 @@
                     $establishments = $module->$relationName;
                 @endphp
 
-                @if($establishments->count())
+                @if($establishments->isNotEmpty())
                     <div class="module-container" style="--theme: {{ $module->theme }}">
                         <div class="module-accordion-banner">
                             @if(isset($module->banner->image))
@@ -49,54 +49,47 @@
                                     </button>
                                 </h2>
 
-                                <div id="collapse-{{ $module->id }}" class="accordion-collapse collapse"
+                                <div 
+                                    class="accordion-collapse collapse"
+                                    id="collapse-{{ $module->id }}"
                                     aria-labelledby="heading-{{ $module->id }}"
-                                    data-bs-parent="#accordion-modules">
+                                    data-bs-parent="#accordion-modules"
+                                >
 
                                     <div class="accordion-body">
                                         <ul class="accordion-list">
                                             @foreach($establishments as $establishment)
-                                                @php
-                                                    $href = $establishment->link ?? null;
-                                                    if (!$href && !empty($establishment->mime_type) && !empty($establishment->content_base64)) {
-                                                        $href = generateBlankLink($establishment->content_base64, $establishment->mime_type);
-                                                    }
-                                                @endphp
-
-                                                @if($href)
+                                                <li>
                                                     @if($establishment->description)
                                                         <blockquote>
                                                             <div class="ql-editor">
                                                                 {!! $establishment->description !!}
                                                             </div>
-                                                            <li class="asset-item"
-                                                                style="background-color: {{ clarifyColor($module->theme, 0.1) }};">
-                                                                <div class="d-flex align-items-center" style="flex: 0 0 90%">
-                                                                    <img src="{{ assetIcon($establishment->type) }}" alt="icon">
-                                                                    <p>{{ $establishment->name }}</p>
-                                                                </div>
-                                                                <div class="d-flex justify-content-end" style="flex: 0 0 10%">
-                                                                    <a href="{{ $href }}" class="btn btn-sm"
-                                                                       style="background-color: {{ $module->theme }}"
-                                                                       target="_blank">Ver</a>
-                                                                </div>
-                                                            </li>
-                                                        </blockquote>
-                                                    @else
-                                                        <li class="asset-item"
-                                                            style="background-color: {{ clarifyColor($module->theme, 0.1) }};">
-                                                            <div class="d-flex align-items-center" style="flex: 0 0 90%">
-                                                                <img src="{{ assetIcon($establishment->type) }}" alt="icon">
-                                                                <p>{{ $establishment->name }}</p>
-                                                            </div>
-                                                            <div class="d-flex justify-content-end" style="flex: 0 0 10%">
-                                                                <a href="{{ $href }}" class="btn btn-sm"
-                                                                   style="background-color: {{ $module->theme }}"
-                                                                   target="_blank">Ver</a>
-                                                            </div>
-                                                        </li>
                                                     @endif
-                                                @endif
+                                                    <li class="asset-item"
+                                                        style="background-color: {{ clarifyColor($module->theme, 0.1) }};">
+                                                        <div class="d-flex align-items-center" style="flex: 0 0 90%">
+                                                            <img src="{{ assetIcon($establishment->type) }}" alt="icon">
+                                                            <p>{{ $establishment->name }}</p>
+                                                        </div>
+                                                        <div class="d-flex justify-content-end" style="flex: 0 0 10%">
+                                                            <a href="#" 
+                                                                class="btn btn-sm dynamic-link"
+                                                                data-link="{{ $establishment->link }}"
+                                                                data-model="EstablishmentAsset"
+                                                                data-id="{{ $establishment->id }}"
+                                                                style="background-color: {{ $module->theme }}"
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                            >
+                                                               Ver
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                                    @if($establishment->description)
+                                                        </blockquote>
+                                                    @endif                                                
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </div>

@@ -3,14 +3,11 @@ const navbarState = {
   breakpoint: 769,
   resizeTimeout: null,
   lastWidth: window.innerWidth,
-  // Detectores que permiten identificar dispositivos táctiles/móviles.
   isTouchDevice: (('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches)),
 };
 
 
 function shouldUseMobileNavbar() {
-  // Para portátiles (incluso con pantalla táctil) queremos usar la versión de escritorio
-  // y sólo mostrar la versión móvil en anchos reducidos.
   return window.innerWidth < navbarState.breakpoint;
 }
 

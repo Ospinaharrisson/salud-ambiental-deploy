@@ -6,20 +6,18 @@
             </button>
             <ul class="dropdown-menu dropdown-list" id="submenu-{{ $collection->id }}">
                 @foreach($collection->entries as $entry)
-                    @php
-                        $href = $entry->link ?? null;
-                        if (!$href && !empty($entry->mime_type) && !empty($entry->content_base64)) {
-                            $href = generateBlankLink($entry->content_base64, $entry->mime_type);
-                        }
-                    @endphp
-                    
-                    @if($href)
-                        <li>
-                            <a class="dropdown-item nav-active" href="{{ $href }}" target="_blank" rel="noopener noreferrer">
-                                {{ $entry->name }}
-                            </a>
-                        </li>
-                    @endif
+                    <li>
+                        <a href="#"
+                            class="dropdown-item nav-active dynamic-link" 
+                            data-link="{{ $entry->link }}"
+                            data-model="NavEntry"
+                            data-id="{{ $entry->id }}"
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                        >
+                            {{ $entry->name }}
+                        </a>
+                    </li>
                 @endforeach
             </ul>
         </li>                  

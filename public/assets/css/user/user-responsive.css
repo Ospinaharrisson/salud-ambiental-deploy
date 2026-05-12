@@ -1,0 +1,19 @@
+/*========================================================================*/
+/*====================== Responsive Content Views ========================*/
+/*========================================================================*/
+
+.content-mobile-view {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .content-desktop-view {
+        display: none;
+    }
+
+    .content-mobile-view {
+        display: block;
+    }
+
+}

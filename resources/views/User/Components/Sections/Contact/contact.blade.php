@@ -28,15 +28,15 @@
     </div>
 </div>
 
-@if (session('mensaje') || session('mensajeError'))
+@if (session('contact_message') || session('contact_message_error'))
     <div id="contact-message-modal" class="contact-modal">
         <div class="contact-modal-content">
             <h4 class="contact-modal-title">
-                {{ session('mensaje') ? 'Éxito' : 'Error' }}
+                {{ session('contact_message') ? 'Éxito' : 'Error' }}
             </h4>
 
             <p class="contact-modal-text">
-                {{ session('mensaje') ?? session('mensajeError') }}
+                {{ session('contact_message') ?? session('contact_message_error') }}
             </p>
 
             <button class="contact-modal-close" onclick="closeContactModal()">

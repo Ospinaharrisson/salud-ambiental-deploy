@@ -6,10 +6,8 @@
 @endpush
 
 @section('content')
-    
     @include('User.Content.MainCarousel.carousel')
     @include('User.Content.Bulletin.todayForecastCalendar')
-
     @include('User.Content.News.news')
     @include('User.Content.Galleries.gallery')
     @include('User.Content.Information.page-info')

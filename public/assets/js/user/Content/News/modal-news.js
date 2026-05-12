@@ -1,54 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
-  function floatModalImage(modalEl) {
-    const editor = modalEl.querySelector('.modal-body .ql-editor');
-    if (!editor) return;
 
-    const leftCol = modalEl.querySelector('.modal-body .row > div:first-child');
-    let img = leftCol ? leftCol.querySelector('img') : null;
+  const modalEl = document.getElementById('article-modal');
 
-    if (!img) {
-        const imgs = Array.from(modalEl.querySelectorAll('.modal-body img'));
-        img = imgs.find(i => !editor.contains(i));
+  if (!modalEl) return;
+
+  const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+  const titleEl = document.getElementById('article-modal-title');
+  const imageEl = document.getElementById('article-modal-image');
+  const descriptionEl = document.getElementById('article-modal-description');
+  const linkEl = document.getElementById('article-modal-link');
+
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-news-trigger]');
+    if (!trigger) return;
+    const title = trigger.dataset.newsTitle || '';
+    const image = trigger.dataset.newsImage || '';
+    const description = JSON.parse(trigger.dataset.newsDescription || '""');
+    const link = trigger.dataset.newsLink || '';
+    titleEl.textContent = title;
+    imageEl.src = image;
+    imageEl.alt = title;
+    descriptionEl.innerHTML = `
+      <img
+        src="${image}"
+        class="news-modal-image news-modal-image-floating"
+        alt="${title}"
+      >
+        ${description}
+    `;
+
+    if (link) {
+      linkEl.href = link;
+      linkEl.classList.remove('d-none');
+    } else {
+        linkEl.href = '#';
+        linkEl.classList.add('d-none');
     }
-
-    if (!img) return;
-    if (editor.contains(img)) return;
-
-    const firstParagraph = editor.querySelector('p') || editor.firstElementChild || editor;
-    firstParagraph.insertBefore(img, firstParagraph.firstChild);
-
-    img.style.cssFloat = 'left';
-    img.style.marginRight = '15px';
-    img.style.marginBottom = '10px';
-
-    if (leftCol) leftCol.style.display = 'none';
-    const textCol = editor.closest('[class*="col-"]');
-    if (textCol) {
-        textCol.classList.remove('col-md-8');
-        textCol.classList.add('col-12');
-    }
-  }
-
-  document.querySelectorAll('.block[role="button"][data-type="article"]').forEach(block => {
-    const articleId = block.dataset.id;
-    const modalEl = document.getElementById(`article-modal-${articleId}`);
-    if (!modalEl) return;
-
-    if (!modalEl.bootstrapModal) {
-      modalEl.bootstrapModal = new bootstrap.Modal(modalEl);
-    }
-
-    block.addEventListener('click', () => {
-        floatModalImage(modalEl);
-        modalEl.bootstrapModal.show();
-    });
-  });
-
-  document.querySelectorAll('[id^="article-modal-"]').forEach(modalEl => {
-    modalEl.addEventListener('hidden.bs.modal', () => {
-      document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
-    });
-
-    modalEl.addEventListener('shown.bs.modal', () => floatModalImage(modalEl));
+    modal.show();
   });
 });

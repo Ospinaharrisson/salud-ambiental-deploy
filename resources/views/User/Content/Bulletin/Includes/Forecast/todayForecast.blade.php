@@ -54,19 +54,17 @@
         </div>
 
         <div class="weather-buttons-container">
-            @foreach($weatherInsights as $insight)
-                @php
-                    $href = $insight->link ?? null;
-                    if (!$href && !empty($insight->mime_type) && !empty($insight->content_base64)) {
-                        $href = generateBlankLink($insight->content_base64, $insight->mime_type);
-                    }
-                @endphp
-                                    
-                @if ($href)
-                    <a class="weather-button my-2" href="{{ $href }}" target="_blank">
-                        <img class="zoom-hover" src="{{ renderBase64Image($insight->image) }}">
-                    </a>
-                @endif
+            @foreach($weatherInsights as $insight)                    
+                <a href="#"
+                    class="weather-button dynamic-link my-2" 
+                    data-link="{{ $insight->link }}"
+                    data-model="WeatherInsight"
+                    data-id="{{ $insight->id }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img class="zoom-hover" src="{{ renderBase64Image($insight->image) }}">
+                </a>
             @endforeach
         </div>
     </div>

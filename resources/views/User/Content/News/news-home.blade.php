@@ -10,7 +10,7 @@
         <h3 class="section-title mb-0 text-center flex-grow-1">
             Historial de Noticias
         </h3>
-        <a href="{{ route('home') }}" class="btn btn-outline-secondary ms-3">
+        <a href="{{ route('home') }}" class="btn app-btn-secondary ms-3">
             Volver
         </a>
     </div>

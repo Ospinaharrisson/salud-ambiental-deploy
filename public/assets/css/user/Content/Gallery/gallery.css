@@ -25,18 +25,10 @@
   border-radius: 30px;
   overflow: hidden;
   transition: all 0.4s ease-in-out;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
-
-.gallery-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-}
-
-.gallery-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-
 
 /*----------------------------------------------------------------------
 | Estados: Activo | Hover
@@ -67,36 +59,37 @@
 }
 
 /*----------------------------------------------------------------------
-| Imagen
-----------------------------------------------------------------------*/
-
-.img-left {
-  width: 280px;
-  height: 180px;
-  margin-right: 20px;
-  flex-shrink:0;
-  border-radius: 5px;
-}
-
-/*----------------------------------------------------------------------
 | Modal
 ----------------------------------------------------------------------*/
 
-#gallery-carousel .carousel-item img {
-  max-height: 300px;
-  width: auto;
+.gallery-carousel {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.gallery-carousel .carousel-inner {
+  height: 500px;
+}
+
+.gallery-carousel .carousel-item,
+.gallery-carousel .carousel-item img {
+  height: 100%;
+}
+
+.gallery-carousel .carousel-item img {
+  width: 100%;
   object-fit: contain;
-  margin: auto;
+  border-radius: 15px;
 }
 
-.gallery-date {
-  padding: 0 15px; 
-  margin: 0;
-}
-
-.gallery-modal-content span,
-.gallery-modal-content strong {
-  font-size: 16px !important;
+.gallery-carousel .carousel-control-prev-icon,
+.gallery-carousel .carousel-control-next-icon {
+  filter:
+    drop-shadow(0 0 2px #000)
+    drop-shadow(0 0 2px #000)
+    drop-shadow(0 0 2px #000);
 }
 
 /*----------------------------------------------------------------------
@@ -160,25 +153,4 @@
 
 .gallery-block .gallery-description {
   transition-delay: 0.1s;
-}
-
-/*----------------------------------------------------------------------
-| Texto
-----------------------------------------------------------------------*/
-
-.gallery-title {
-  font-size: 35px;
-  color: #fff;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 0;
-}
-
-.section-title {
-  font-size: 40px;
-  font-weight: bold;
-}
-
-div > p.small.text-muted {
-  display: none;
 }

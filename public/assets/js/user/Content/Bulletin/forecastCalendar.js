@@ -16,16 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function handleEventClick(info) {
+  async function handleEventClick(info) {
     const modalEl = document.getElementById("calendarEventModal");
     if (!modalEl) return;
-  
+
     const event = info.event;
     const props = event.extendedProps || {};
-  
+
     document.getElementById("calendarEventTitle").textContent =
       event.title || "Evento";
-  
+
     const imageEl = document.getElementById("calendarEventImage");
     if (props.image) {
       imageEl.src = props.image;
@@ -34,19 +34,31 @@ document.addEventListener("DOMContentLoaded", () => {
       imageEl.style.display = "none";
       imageEl.src = "";
     }
-  
+
     const btn = document.getElementById("calendarMoreInfoBtn");
-  
-    if (props.url) {
-      btn.style.display = "inline-block";
-    
-      btn.onclick = () => window.open(props.url, "_blank", "noopener");
-    } else {
+
+    btn.style.display = "none";
+    btn.onclick = null;
+
+    const modalInstance = new bootstrap.Modal(modalEl);
+    modalInstance.show();
+
+    try {
+      const response = await fetch(`/calendar/events/${event.id}`);
+      const data = await response.json();
+
+      if (data.url) {
+        btn.style.display = "inline-block";
+        btn.onclick = () => window.open(data.url, "_blank", "noopener");
+      } else {
+        btn.style.display = "none";
+        btn.onclick = null;
+      }
+    } catch (error) {
+      console.error("Error loading event URL:", error);
       btn.style.display = "none";
       btn.onclick = null;
     }
-  
-    new bootstrap.Modal(modalEl).show();
   }
 
   fetch(`${window.location.origin}/calendar/events`)

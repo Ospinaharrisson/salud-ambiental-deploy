@@ -7,4 +7,7 @@
 {{-- jquery --}}
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 
+{{-- Sistema de generación de enlaces --}}
+<script src="{{ asset('assets/js/Shared/blank/generate-link.js') }}"></script>
+
 @livewireScripts

@@ -25,6 +25,6 @@ class HomeController extends Controller
     public function createMessage(Request $request)
     {
         $this->homeRenderService->createMessage($request);
-        return back()->with('mensaje', 'Mensaje enviado correctamente.');
+        return back()->with('contact_message', 'Mensaje enviado correctamente.');
     }
 }

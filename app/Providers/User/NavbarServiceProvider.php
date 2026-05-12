@@ -30,37 +30,65 @@ class NavbarServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('User.Components.Sections.Navbar.navbar', function ($view) {
+    
             $modules = Module::where('is_active', true)
                 ->where('type', 'global')
                 ->orderBy('order')
-                ->get(['id','name', 'image']);
-
+                ->limit(9)
+                ->get([
+                    'id',
+                    'name',
+                    'image'
+                ]);
+    
             $pages = Page::where('is_active', true)
                 ->where('show_in_navbar', true)
                 ->orderBy('order')
-                ->get(['id', 'slug', 'name', 'module_id'])
+                ->limit(15)
+                ->get([
+                    'id',
+                    'slug',
+                    'name',
+                    'module_id'
+                ])
                 ->groupBy('module_id');
-
+    
             $recordsPages = RecordsPage::where('is_active', true)
-                ->get(['id', 'slug', 'name', 'module_id'])
+                ->orderBy('id')
+                ->get([
+                    'id',
+                    'slug',
+                    'name',
+                    'module_id'
+                ])
                 ->groupBy('module_id');
-
+    
             $navCollections = NavCollection::where('is_active', true)
                 ->whereHas('entries', function ($q) {
                     $q->where('is_active', true);
                 })
-                ->with(['entries' => function ($q) {
-                    $q->where('is_active', true)->orderBy('order');
-                }])
+                ->with([
+                    'entries' => function ($q) {
+                        $q->where('is_active', true)
+                            ->orderBy('order')
+                            ->limit(10);
+                    }
+                ])
                 ->orderBy('order')
+                ->limit(8)
                 ->get()
                 ->groupBy('module_id');
-
+    
             $districts = Module::where('is_active', true)
                 ->where('type', 'district')
                 ->orderBy('order')
-                ->get(['id', 'name', 'image']);
-
+                ->limit(6)
+                ->get([
+                    'id',
+                    'name',
+                    'image'
+                ]);
+    
             $view->with([
                 'modules' => $modules,
                 'pages' => $pages,

@@ -2,8 +2,9 @@
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('assets/css/user/Content/MainCarousel/carousel.css') }}" />
 @endpush
 
-@if ($banners->count())
+@if ($banners->isNotEmpty())
     <div id="mainBannerCarousel" class="carousel slide my-4" data-bs-ride="carousel">
+        
         <div class="carousel-indicators">
             @foreach($banners as $index => $image)
                 <button type="button"
@@ -15,20 +16,38 @@
                 </button>
             @endforeach
         </div>
+
         <div class="carousel-inner">
             @foreach($banners as $index => $image)
                 <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                     @php
-                        $href = $image->link ?? null;
-                        if (!$href && !empty($image->mime_type) && !empty($image->content_base64)) {
-                            $href = generateBlankLink($image->content_base64, $image->mime_type);
-                        }
+                        $hasLink =
+                            !empty($image->link) ||
+                            (
+                                !empty($image->mime_type) &&
+                                !empty($image->content_base64)
+                            );
                     @endphp
-                    @if ($href)<a href="{{ $href }}" target="_blank" rel="noopener noreferrer">@endif
-                        <img src="{{ renderBase64Image($image->image) }}"
-                            class="d-block w-100"
-                            alt="{{ $image->name }}" />
-                    @if ($href)</a>@endif
+                    @if ($hasLink)
+                        <a href="#" 
+                            class="dynamic-link"
+                            data-link="{{ $image->link }}"
+                            data-model="Banner"
+                            data-id="{{ $image->id }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                    @endif
+                    
+                    <img 
+                        src="{{ renderBase64Image($image->image) }}"
+                        class="d-block w-100"
+                        alt="{{ $image->name }}" 
+                    />
+
+                    @if ($hasLink)
+                        </a>
+                    @endif
                 </div>
             @endforeach
         </div>

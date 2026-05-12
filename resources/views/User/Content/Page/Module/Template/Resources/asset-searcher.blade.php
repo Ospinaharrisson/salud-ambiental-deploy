@@ -25,7 +25,7 @@
                         <option value="geo">Mapa</option>
                     </select>
                 </div>
-                @if($categories && $categories->count())
+                @if($categories && $categories->isNotEmpty())
                     <div class="canvas-select-wrapper">
                         <select class="offcanvas-input canvas-select" wire:model.lazy="filterCategory" wire:change="applyFilters">
                             <option value="" selected>Todas las categorías</option>
@@ -43,16 +43,9 @@
             </div>
 
             <div class="offcanvas-assets">
-                @if($results && $results->count())
+                @if($results && $results->isNotEmpty())
                     <div class="offcanvas-items">
                         @foreach ($results as $result)
-                            @php
-                                $href = $result->link ?? null;
-                                if (!$href && !empty($result->mime_type) && !empty($result->content_base64)) {
-                                    $href = generateBlankLink($result->content_base64, $result->mime_type);
-                                }
-                            @endphp
-                            
                             <div class="canvas-card" style="background-color: {{ clarifyColor($theme, 0.1) }};">
                                 <div class="card-header">
                                     <div class="title">{{ Str::limit($result->name, 20, '...') }}</div>
@@ -82,7 +75,15 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <a href="{{ $href }}" target="_blank" class="btn w-100" style="background: linear-gradient(to right, {{ clarifyColor($theme, 0.4) }}, {{ $theme }});">
+                                    <a href="#" 
+                                        class="btn w-100 dynamic-link"
+                                        style="background: linear-gradient(to right, {{ clarifyColor($theme, 0.4) }}, {{ $theme }});"
+                                        data-link="{{ $result->link }}"
+                                        data-model="PageAsset"
+                                        data-id="{{ $result->id }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         Ver
                                     </a>
                                 </div>

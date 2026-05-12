@@ -33,23 +33,22 @@
                 </div>
             @endif
             @foreach($establishments as $establishment)
-                @php
-                    $href = $establishment->link ?? null;
-                    if (!$href && !empty($establishment->mime_type) && !empty($establishment->content_base64)) {
-                        $href = generateBlankLink($establishment->content_base64, $establishment->mime_type);
-                    }
-                @endphp
-                
-                @if ($href)
-                    <div class="col d-flex justify-content-center">
-                        <a class="establishment-button" href="{{ $href }}" target="_blank" rel="noopener noreferrer">
-                            <img class="establishment-image zoom-hover" 
-                                src="{{ renderBase64Image($establishment->image) }}" 
-                                alt="{{ $establishment->name }}" 
-                                loading="lazy">
-                        </a>
-                    </div>
-                @endif
+                <div class="col d-flex justify-content-center">
+                    <a href="#"
+                        class="establishment-button dynamic-link" 
+                        data-link="{{ $establishment->link }}"
+                        data-model="EstablishmentButton"
+                        data-id="{{ $establishment->id }}"
+                        target="_blank" 
+                        rel="noopener noreferrer">
+                        <img 
+                            class="establishment-image zoom-hover" 
+                            src="{{ renderBase64Image($establishment->image) }}" 
+                            alt="{{ $establishment->name }}" 
+                            loading="lazy"
+                        >
+                    </a>
+                </div>
             @endforeach
         </div>
     </div>
@@ -57,20 +56,30 @@
 
 @if(isset($featuredImage))
     @php
-        $href = $featuredImage->link ?? null;
-        if (!$href && !empty($featuredImage->mime_type) && !empty($featuredImage->content_base64)) {
-            $href = generateBlankLink($featuredImage->content_base64, $featuredImage->mime_type);
-        }
+        $position = $index + 1;
+        $hasLink =
+            !empty($image->link) ||
+            (
+                !empty($image->mime_type) &&
+                !empty($image->content_base64)
+            );
     @endphp
 
     <div class="container-fluid featured-image">
-        @if ($href)
-            <a href="{{ $href }}" target="_blank" rel="noopener noreferrer">
+        @if ($hasLink)
+            <a href="#" 
+                class="dynamic-link"
+                data-link="{{ $featuredImage->link }}"
+                data-model="FeaturedImage"
+                data-id="{{ $featuredImage->id }}"
+                target="_blank" 
+                rel="noopener noreferrer"
+            >
         @endif
         
         <img class="h-100 w-100" src="{{ renderBase64Image($featuredImage->image) }}" alt="{{ $featuredImage->name }}">
 
-        @if ($href)
+        @if ($hasLink)
             </a>
         @endif
     </div>

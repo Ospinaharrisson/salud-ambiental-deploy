@@ -30,7 +30,7 @@ class GalleryEventController extends Controller
     public function galleryImageView(int $event_id)
     {
         $event = GalleryEvent::findOrFail($event_id);
-        return view('Admin.Dashboard.Home.gallery.images.image-home', compact('event'));
+        return view('Admin.Dashboard.Home.gallery.Images.image-home', compact('event'));
     }
 
     public function galleryCreateView()
@@ -49,13 +49,13 @@ class GalleryEventController extends Controller
     public function galleryImageCreateView(int $event_id)
     {
         $event = GalleryEvent::findOrFail($event_id);
-        return view('Admin.Dashboard.Home.gallery.images.image-create', compact('event'));
+        return view('Admin.Dashboard.Home.gallery.Images.image-create', compact('event'));
     }
 
     public function galleryImageUpdateView($event_id, $image_id)
     {
         $image = GalleryImage::findOrFail($image_id);
-        return view('Admin.Dashboard.Home.gallery.images.image-edit', compact('image'));
+        return view('Admin.Dashboard.Home.gallery.Images.image-edit', compact('image'));
     }
 
     /* #endregion vistas */

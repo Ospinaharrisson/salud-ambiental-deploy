@@ -13,23 +13,28 @@
     
     <ul class="asset-list">
         @foreach($items as $asset)
-            @php
-                $href = $asset['link'] ?? null;
-                if (!$href && !empty($asset['mime_type']) && !empty($asset['content_base64'])) {
-                    $href = generateBlankLink($asset['content_base64'], $asset['mime_type']);
-                }
-            @endphp
-            @if($href)
-                <li class="asset-item" style="background-color: {{ clarifyColor($theme, 0.1) }};" title="{{ $asset['title'] ?? $asset['name']}}">
-                    <div class="d-flex align-items-center" style="flex: 0 0 90%">
-                        <img src="{{ assetIcon($asset['type']) }}" alt="icon">
-                        <p>{{ $asset['name'] }}</p>
-                    </div>
-                    <div class="d-flex justify-content-end" style="flex: 0 0 10%">
-                        <a href="{{ $href }}" class="btn btn-sm" target="_blank">Ver</a>
-                    </div>
-                </li>
-            @endif
+            <li
+                class="asset-item"
+                style="background-color: {{ clarifyColor($theme, 0.1) }};" 
+                title="{{ $asset['title'] ?? $asset['name']}}"
+            >
+                <div class="d-flex align-items-center" style="flex: 0 0 90%">
+                    <img src="{{ assetIcon($asset['type']) }}" alt="icon">
+                    <p>{{ $asset['name'] }}</p>
+                </div>
+                <div class="d-flex justify-content-end" style="flex: 0 0 10%">
+                    <a href="#" 
+                        class="btn btn-sm dynamic-link" 
+                        data-link="{{ $asset['link'] }}"
+                        data-model="PageAsset"
+                        data-id="{{ $asset['id'] }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Ver
+                    </a>
+                </div>
+            </li>
         @endforeach
     </ul>
 

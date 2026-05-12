@@ -123,7 +123,7 @@ class HomeRenderService
             ]);
         } catch (ValidationException $e) {
             return back()
-                ->with('mensajeError', 'No se pudo enviar el mensaje. Por favor revisa los campos.')
+                ->with('contact_message_error', 'No se pudo enviar el mensaje. Por favor revisa los campos.')
                 ->throwResponse();
         }
 

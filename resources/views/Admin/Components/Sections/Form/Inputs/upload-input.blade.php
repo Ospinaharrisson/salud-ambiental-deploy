@@ -23,7 +23,7 @@
         <i class="far fa-images"></i>
         <span class="file-upload-text my-4">Arrastra o haz clic para subir archivos</span>
         <input
-            id="upload"
+            id="{{ $id }}"
             type="file"
             name="{{ $name }}[]"
             multiple
@@ -33,7 +33,7 @@
             data-max-files="{{ $maxFiles }}"
         >
         <div>
-            <button class="upload-button mb-3">buscar archivo</button>
+            <button type="button" class="upload-button mb-3">buscar archivo</button>
         </div>
     </div>
 

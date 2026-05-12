@@ -18,6 +18,7 @@
             </div>
         @endif
     </div>
+
     @if($points->isNotEmpty())
         <div class="card overflow-hidden flex-grow-0" style="flex-basis: 70%;">
             <div class="card-header text-center" style="background-color: var(--primary-color);">
@@ -31,21 +32,28 @@
                         @foreach($points->values() as $index => $point)
                             @php
                                 $position = $index + 1;
-                        
-                                $href = $point->link ?? null;
-                                if (!$href && !empty($point->mime_type) && !empty($point->content_base64)) {
-                                    $href = generateBlankLink($point->content_base64, $point->mime_type);
-                                }
+                                $hasLink =
+                                    !empty($image->link) ||
+                                    (
+                                        !empty($image->mime_type) &&
+                                        !empty($image->content_base64)
+                                    );
                             @endphp
                         
                             <div class="point-box point-{{ $position }}">
-                                @if($href)
-                                    <a href="{{ $href }}" target="_blank">
+                                @if($hasLink)
+                                    <a href="#"
+                                        class="dynamic-link"
+                                        data-link="{{ $point->link }}"
+                                        data-model="CollectionPoint"
+                                        data-id="{{ $point->id }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer">
                                 @endif
                                 
                                 <img src="{{ renderBase64Image($point->image) }}" alt="{{ $point->name }}">
                         
-                                @if($href)
+                                @if($hasLink)
                                     </a>
                                 @endif
                             </div>
