@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const image = trigger.dataset.newsImage || '';
     const description = JSON.parse(trigger.dataset.newsDescription || '""');
     const link = trigger.dataset.newsLink || '';
+    const model = trigger.dataset.newsModel || '';
+    const id = trigger.dataset.newsId || '';
+    
     titleEl.textContent = title;
     imageEl.src = image;
     imageEl.alt = title;
@@ -29,12 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
         ${description}
     `;
 
-    if (link) {
-      linkEl.href = link;
+    if (link || (model && id)) {
       linkEl.classList.remove('d-none');
+      linkEl.dataset.link = link;
+      linkEl.dataset.model = model;
+      linkEl.dataset.id = id;
     } else {
-        linkEl.href = '#';
-        linkEl.classList.add('d-none');
+      linkEl.classList.add('d-none');
+      delete linkEl.dataset.link;
+      delete linkEl.dataset.model;
+      delete linkEl.dataset.id;
     }
     modal.show();
   });

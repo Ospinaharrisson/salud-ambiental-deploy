@@ -5,7 +5,9 @@
             data-news-title="{{ $article->name }}"
             data-news-image="{{ renderBase64Image($article->image) }}"
             data-news-description='@json($article->description)'
-            data-news-link="{{ $article->link ?? '' }}"
+            data-news-link="{{ $article->link }}"
+            data-news-model="Article"
+            data-news-id="{{ $article->id }}"
         >
             <div class="text-sm-left text-justify news-label">
                 {{ Str::limit($article->name, 40, '...') }}

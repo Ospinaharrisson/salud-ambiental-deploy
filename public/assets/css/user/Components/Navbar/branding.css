@@ -1,0 +1,209 @@
+/* ========================================================================== */
+/* Variables */
+/* ========================================================================== */
+
+:root {
+    --branding-search-bg: #C2E3F2;
+    --branding-search-focus-border: #268AA3;
+    --branding-search-focus-outline: #3aabe9;
+    --branding-search-focus-text: #49879d;
+
+    --branding-search-font-size: clamp(0.8rem, 1vw, 1rem);
+    --branding-search-placeholder-size: clamp(0.9rem, 1vw, 0.9rem);
+}
+
+html.app-contrast {
+
+    --branding-search-bg: #ffffff;
+    --branding-search-focus-outline: #000000;
+}
+
+/* ========================================================================== */
+/* Branding Wrapper */
+/* ========================================================================== */
+
+.navbar-branding {
+    width: 100%;
+}
+
+/* ========================================================================== */
+/* Main Branding */
+/* ========================================================================== */
+
+.navbar-branding-main { 
+    display: flex;
+    flex-wrap: wrap;    
+    justify-content: space-around;
+    align-items: center;    
+    gap: 1rem;  
+    width: 100%;    
+    padding: 1.5rem;  
+    background-color: var(--secondary-color);
+}
+
+/* ========================================================================== */
+/* Townhall Logo */
+/* ========================================================================== */
+
+.navbar-branding-townhall-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-branding-townhall-logo {
+    width: clamp(190px, 20vw, 260px);
+    height: clamp(45px, 8vh, 60px);
+    object-fit: contain;
+}
+
+/* ========================================================================== */
+/* Home Logo */
+/* ========================================================================== */
+
+.navbar-branding-home-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-branding-home-logo {
+    width: auto;
+    height: clamp(120px, 25vh, 200px);
+    object-fit: contain;
+}
+
+/* ========================================================================== */
+/* Search */
+/* ========================================================================== */
+
+.navbar-branding-search {
+    display: flex;
+    align-items: center;
+    width: clamp(220px, 25vw, 300px);
+    padding: 5px;
+}
+
+.navbar-branding-search-input {
+    width: 100%;
+    height: clamp(36px, 6vh, 45px);
+    padding: 0 20px;
+    border: none;
+    border-radius: 22px;
+    background: var(--branding-search-bg);
+    font-size: calc(var(--branding-search-font-size) * var(--font-scale));
+}
+
+.navbar-branding-search-input::placeholder {
+    font-size: var(--branding-search-placeholder-size);
+}
+
+.navbar-branding-search-input:focus {   
+    outline: 4px solid var(--branding-search-focus-outline); 
+    border: 1px solid var(--branding-search-focus-border);  
+    color: var(--branding-search-focus-text);  
+    transition: 0.35s ease;
+}
+
+.navbar-branding-search-button {    
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    margin-left: -50px; 
+    padding: 0; 
+    border: none;   
+    background: transparent;    
+    cursor: pointer;
+}
+
+.navbar-branding-search-icon {
+    width: clamp(25px, 4vw, 35px);
+    height: clamp(25px, 4vw, 35px);
+    padding: 5px;
+}
+
+/* ========================================================================== */
+/* Tablet */
+/* ========================================================================== */
+
+@media (max-width: 992px) {
+
+    .navbar-branding-main {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .navbar-branding-home-logo {
+        height: 120px;
+    }
+
+    .navbar-branding-search {
+        width: 220px;
+    }
+}
+
+/* ========================================================================== */
+/* Mobile */
+/* ========================================================================== */
+
+@media (max-width: 768px) {
+
+    .navbar-branding-main {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.8rem;
+    }
+
+    .navbar-branding-townhall-logo {
+        width: clamp(160px, 25vw, 220px);
+        height: auto;
+    }
+
+    .navbar-branding-home-logo {
+        width: clamp(200px, 35vw, 260px);
+        height: clamp(100px, 15vh, 120px);
+    }
+
+    .navbar-branding-search {
+        width: clamp(200px, 50vw, 220px);
+    }
+
+    .navbar-branding-search-input {
+        height: 32px;
+        font-size: 0.8rem;
+    }
+
+    .navbar-branding-search-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* ========================================================================== */
+/* Small Mobile */
+/* ========================================================================== */
+
+@media (max-width: 576px) {
+
+    .navbar-branding-townhall-logo {
+        width: clamp(120px, 34vw, 150px);
+    }
+
+    .navbar-branding-home-logo {
+        width: clamp(160px, 38vw, 200px);
+        height: clamp(70px, 12vh, 90px);
+    }
+
+    .navbar-branding-search {
+        width: clamp(240px, 82vw, 300px);
+    }
+
+    .navbar-branding-search-input {
+        height: clamp(30px, 5vh, 34px);
+    }
+
+    .navbar-branding-search-icon {
+        width: clamp(20px, 4vw, 26px);
+        height: clamp(20px, 4vw, 26px);
+    }
+}

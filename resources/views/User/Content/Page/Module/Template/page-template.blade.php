@@ -37,7 +37,3 @@
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script src="{{ asset('assets/js/shared/requests/handle-request.js') }}"></script>
-@endpush

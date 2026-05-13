@@ -4,6 +4,7 @@ document.addEventListener('click', async (e) => {
     if (!linkEl) return;
 
     e.preventDefault();
+    e.stopPropagation();
 
     const directLink = linkEl.dataset.link;
     const model = linkEl.dataset.model;

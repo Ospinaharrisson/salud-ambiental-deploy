@@ -10,6 +10,8 @@
                     data-news-image="{{ renderBase64Image($article->image) }}"
                     data-news-description='@json($article->description)'
                     data-news-link="{{ $article->link ?? '' }}"
+                    data-news-model="Article"
+                    data-news-id="{{ $article->id }}"
                     >
                     <img
                         src="{{ renderBase64Image($article->image) }}"

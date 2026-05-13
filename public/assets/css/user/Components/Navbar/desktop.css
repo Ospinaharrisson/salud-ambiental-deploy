@@ -1,0 +1,367 @@
+/* ========================================================================== */
+/* Desktop Navbar Variables */
+/* ========================================================================== */
+
+:root {
+  --desktop-nav-text-color: rgb(200, 238, 255);
+  --desktop-nav-text-hover: #019ee2;
+
+  --desktop-dropdown-text-color: #019ee2;
+  --desktop-dropdown-border-color: #dee2e6;
+  --desktop-dropdown-hover-bg: #f1f1f1;
+
+  --desktop-nav-text-size: clamp(0.5rem, 1.5vw, 0.7rem);
+  --desktop-dropdown-text-size: clamp(0.58rem, 1.2vw, 0.85rem);
+}
+
+/* ========================================================================== */
+/* Contrast Theme */
+/* ========================================================================== */
+
+html.app-contrast {
+  --desktop-nav-text-color: #ffffff;
+  --desktop-nav-text-hover: #191919;
+  --desktop-dropdown-text-color: #000000;
+}
+
+/* ========================================================================== */
+/* Wrapper */
+/* ========================================================================== */
+
+.desktop-navbar-wrapper {
+  width: 100%;
+  padding: 0;
+  padding-bottom: 0.4rem;
+  background-color: var(--primary-color);
+}
+
+/* ========================================================================== */
+/* Navbar */
+/* ========================================================================== */
+
+.desktop-navbar {
+  position: relative;
+  overflow: visible;
+  background: none;
+}
+
+.desktop-navbar::before,
+.desktop-navbar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.desktop-navbar::before {
+  top: 0;
+  height: 30%;
+  background-color: var(--secondary-color);
+}
+
+.desktop-navbar::after {
+  top: 30%;
+  height: 70%;
+  background-color: var(--primary-color);
+}
+
+/* ========================================================================== */
+/* Navbar List */
+/* ========================================================================== */
+
+.desktop-navbar-list {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 130px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid #ffffff;
+}
+
+/* ========================================================================== */
+/* Navbar Item */
+/* ========================================================================== */
+
+.desktop-navbar-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: clamp(85px, 12vw, 130px);
+  min-height: clamp(95px, 18vh, 130px);
+  padding-top: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.4s ease-in-out;
+}
+
+.desktop-navbar-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  border-radius: 10px 10px 0 0;
+  background: #ffffff;
+  z-index: 0;
+  transition: height 0.4s ease-in-out;
+}
+
+.desktop-navbar-item:hover::before,
+.desktop-navbar-item.active::before {
+  height: 100%;
+}
+
+.desktop-navbar-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+.desktop-navbar-item:hover .desktop-navbar-text,
+.desktop-navbar-item.active .desktop-navbar-text {
+  color: var(--desktop-nav-text-hover);
+}
+
+/* ========================================================================== */
+/* Image */
+/* ========================================================================== */
+
+.desktop-navbar-image-wrapper {
+  position: relative;
+  width: clamp(48px, 8vw, 65px);
+  height: clamp(48px, 8vw, 65px);
+}
+
+.desktop-navbar-image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  z-index: 0;
+}
+
+.desktop-navbar-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ========================================================================== */
+/* Text */
+/* ========================================================================== */
+
+.desktop-navbar-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  overflow: hidden;
+  padding: 6px;
+  color: var(--desktop-nav-text-color);
+}
+
+.desktop-navbar-text span {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.2;
+  font-weight: 500;
+  font-size: calc(var(--desktop-nav-text-size) * var(--font-scale));
+}
+
+/* ========================================================================== */
+/* Dropdown */
+/* ========================================================================== */
+
+.desktop-navbar-dropdown,
+.desktop-dropdown-submenu-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  width: clamp(150px, 20vw, 200px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  z-index: 10;
+  border-radius: 0;
+  border-bottom: 3px solid var(--secondary-color);
+  background-color: #ffffff;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.desktop-navbar-dropdown.show,
+.desktop-dropdown-submenu-list.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* ========================================================================== */
+/* Dropdown Items */
+/* ========================================================================== */
+
+.desktop-dropdown-item,
+.desktop-dropdown-submenu-item,
+.desktop-dropdown-submenu {
+  position: relative;
+  list-style: none;
+}
+
+/* ========================================================================== */
+/* Dropdown Links */
+/* ========================================================================== */
+
+.desktop-dropdown-link,
+.desktop-dropdown-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 32px;
+  padding: 6px 14px;
+  border: none;
+  background: transparent;
+  color: var(--desktop-dropdown-text-color);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.1;
+  font-weight: 500;
+  font-size: calc(var(--desktop-dropdown-text-size) * var(--font-scale));
+  transition:
+    background-color 0.25s ease,
+    transform 0.2s ease;
+}
+
+.desktop-dropdown-link:hover,
+.desktop-dropdown-button:hover {
+  background-color: var(--desktop-dropdown-hover-bg);
+  transform: translateX(5px);
+}
+
+/* ========================================================================== */
+/* Dropdown Borders */
+/* ========================================================================== */
+
+.desktop-dropdown-item:not(:last-child),
+.desktop-dropdown-submenu-item:not(:last-child),
+.desktop-dropdown-submenu:not(:last-child) {
+  border-bottom: 1px solid var(--desktop-dropdown-border-color);
+}
+
+/* ========================================================================== */
+/* Submenu */
+/* ========================================================================== */
+
+.desktop-dropdown-submenu {
+  position: relative;
+}
+
+/* ========================================================================== */
+/* Submenu Arrow */
+/* ========================================================================== */
+
+.desktop-dropdown-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 0.3em solid transparent;
+  border-bottom: 0.3em solid transparent;
+  border-left: 0.3em solid currentColor;
+}
+
+/* ========================================================================== */
+/* Submenu List */
+/* ========================================================================== */
+
+.desktop-dropdown-submenu-list {
+  top: -10;
+  left: 0;
+  z-index: 20;
+}
+
+.desktop-dropdown-submenu-list.show {
+  transform: translateY(0);
+}
+
+.desktop-dropdown-submenu .desktop-dropdown-link {
+  padding-left: 24px;
+}
+
+/* ========================================================================== */
+/* Responsive */
+/* ========================================================================== */
+
+@media (max-width: 1200px) {
+
+  .desktop-navbar-item {
+    width: 100px;
+    min-height: 110px;
+  }
+
+  .desktop-navbar-image-wrapper,
+  .desktop-navbar-image {
+    width: 55px;
+    height: 55px;
+  }
+
+  .desktop-navbar-dropdown,
+  .desktop-dropdown-submenu-list {
+    width: 160px;
+  }
+}
+
+@media (max-width: 992px) {
+
+  .desktop-navbar-item {
+    width: 85px;
+    min-height: 95px;
+  }
+
+  .desktop-navbar-image-wrapper,
+  .desktop-navbar-image {
+    width: 48px;
+    height: 48px;
+  }
+
+  .desktop-navbar-text span {
+    font-size: calc(0.5rem * var(--font-scale));
+  }
+
+  .desktop-navbar-dropdown,
+  .desktop-dropdown-submenu-list {
+    width: 160px;
+  }
+
+  .desktop-dropdown-link,
+  .desktop-dropdown-button {
+    padding: 8px 10px;
+  }
+}

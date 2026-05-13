@@ -6,7 +6,14 @@
                 <button
                     type="button"
                     class="btn mobile-content-card text-start"
-                    data-gallery-id="{{ $gallery->id }}" >
+                    data-gallery-trigger
+                    data-gallery-title="{{ $gallery->name }}"
+                    data-gallery-date="{{ $gallery->date ?? '' }}"
+                    data-gallery-description='@json($gallery->description)'
+                    data-gallery-images='@json(
+                        $gallery->images->map(fn($image) => renderBase64Image($image->image))
+                    )'
+                >
 
                     <img
                         src="{{ renderBase64Image($gallery->firstImage?->image) }}"

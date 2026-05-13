@@ -29,7 +29,7 @@ class NavbarServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('User.Components.Sections.Navbar.navbar', function ($view) {
+        View::composer('User.Components.Navbar.layout', function ($view) {
     
             $modules = Module::where('is_active', true)
                 ->where('type', 'global')

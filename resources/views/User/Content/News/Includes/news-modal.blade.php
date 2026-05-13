@@ -38,8 +38,9 @@
                 <a
                     id="article-modal-link"
                     href="#"
+                    class="btn app-btn-primary dynamic-link d-none"
                     target="_blank"
-                    class="btn app-btn-primary d-none">
+                >
                     Ver más información
                 </a>
                 <button
