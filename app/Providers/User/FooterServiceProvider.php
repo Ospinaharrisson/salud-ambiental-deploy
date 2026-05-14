@@ -28,7 +28,7 @@ class FooterServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('User.Components.Sections.Footer.footer', function ($view) {
+        View::composer('User.Components.Footer.footer', function ($view) {
             $lines = LineOfInterest::where('is_active', true)
                 ->limit(8)
                 ->orderBy('order')

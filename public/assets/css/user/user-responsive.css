@@ -6,8 +6,7 @@
     display: none;
 }
 
-@media (max-width: 768px) {
-
+@media (max-width: 1024px) and (hover: none) and (pointer: coarse) {
     .content-desktop-view {
         display: none;
     }
@@ -15,5 +14,4 @@
     .content-mobile-view {
         display: block;
     }
-
 }

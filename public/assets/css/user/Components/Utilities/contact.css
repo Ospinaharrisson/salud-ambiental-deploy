@@ -1,0 +1,316 @@
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+:root {
+  --contact-bg: #ffffff;
+  --contact-border: transparent;
+  --contact-shadow: rgba(0, 0, 0, 0.14);
+
+  --contact-header-bg: var(--primary-color);
+  --contact-header-text: #ffffff;
+
+  --contact-text: #666666;
+
+  --contact-input-text: #666666;
+  --contact-placeholder: #999999;
+  --contact-input-border: #e5e5e5;
+
+  --contact-button-bg: var(--primary-color);
+  --contact-button-text: #ffffff;
+
+  --contact-modal-bg: #ffffff;
+  --contact-modal-overlay: rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   Contrast Theme
+   ========================================================================== */
+
+html.app-contrast {
+  --contact-bg: #2f2f2f;
+  --contact-border: #ffffff;
+  --contact-shadow: rgba(0, 0, 0, 0.55);
+
+  --contact-text: #f1f1f1;
+
+  --contact-input-text: #f1f1f1;
+  --contact-placeholder: #cccccc;
+  --contact-input-border: #5c5c5c;
+
+  --contact-modal-bg: #3a3a3a;
+  --contact-modal-overlay: rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================================================================
+   Widget Wrapper
+   ========================================================================== */
+
+.contact-widget {
+  position: fixed;
+
+  right: 60px;
+  bottom: 0;
+
+  z-index: 20;
+
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Contact Form
+   ========================================================================== */
+
+.contact-form {
+  width: 300px;
+
+  overflow: hidden;
+
+  border-radius: 12px 12px 0 0;
+
+  background-color: var(--contact-bg);
+
+  border: 1px solid var(--contact-border);
+
+  box-shadow:
+    0 2px 2px 0 var(--contact-shadow),
+    0 1px 5px 0 var(--contact-shadow),
+    0 3px 1px -2px var(--contact-shadow);
+
+  transform: translateY(calc(100% - 52px));
+
+  transition:
+    transform 0.8s cubic-bezier(.22, .67, .43, 1.22);
+
+  pointer-events: auto;
+}
+
+.contact-widget:hover .contact-form {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.contact-header {
+  background-color: var(--contact-header-bg);
+}
+
+.contact-title {
+  margin: 0;
+
+  padding: 16px;
+
+  color: var(--contact-header-text);
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Body
+   ========================================================================== */
+
+.contact-body {
+  padding: 16px;
+}
+
+.contact-message {
+  margin: 0 0 16px;
+
+  color: var(--contact-text);
+
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   Form
+   ========================================================================== */
+
+.contact-form-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.contact-form-content input,
+.contact-form-content textarea {
+  width: 100%;
+
+  padding: 10px 12px;
+
+  border: none;
+  border-bottom: 1px solid var(--contact-input-border);
+
+  background: transparent;
+
+  color: var(--contact-input-text);
+
+  font-size: 13px;
+
+  resize: none;
+
+  transition: border-color 0.3s ease;
+}
+
+.contact-form-content input::placeholder,
+.contact-form-content textarea::placeholder {
+  color: var(--contact-placeholder);
+}
+
+.contact-form-content input:focus,
+.contact-form-content textarea:focus {
+  outline: none;
+
+  border-color: var(--primary-color);
+}
+
+.contact-form-content textarea {
+  min-height: 110px;
+}
+
+/* ==========================================================================
+   Submit Button
+   ========================================================================== */
+
+.contact-form-content button {
+  width: 120px;
+  height: 40px;
+
+  margin: 8px auto 0;
+
+  border: none;
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  background-color: var(--contact-button-bg);
+  color: var(--contact-button-text);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.contact-form-content button:hover {
+  opacity: 0.9;
+
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Modal
+   ========================================================================== */
+
+.contact-modal {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  background-color: var(--contact-modal-overlay);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.contact-modal.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.contact-modal-content {
+  width: min(90%, 360px);
+
+  padding: 24px;
+
+  border-radius: 12px;
+
+  text-align: center;
+
+  background-color: var(--contact-modal-bg);
+
+  animation: contact-pop-in 0.25s ease-out;
+}
+
+.contact-modal-title {
+  margin: 0 0 12px;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  color: var(--font-color);
+}
+
+.contact-modal-text {
+  margin: 0 0 20px;
+
+  color: var(--font-color);
+
+  line-height: 1.5;
+}
+
+.contact-modal-close {
+  padding: 10px 18px;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  background-color: var(--primary-color);
+
+  color: #ffffff;
+
+  transition: opacity 0.3s ease;
+}
+
+.contact-modal-close:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes contact-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes contact-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.contact-fade-out {
+  animation: contact-fade-out 0.3s ease forwards;
+}

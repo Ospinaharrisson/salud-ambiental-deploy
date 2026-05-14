@@ -3,7 +3,7 @@
         <a href="{{ route('home') }}" class="navbar-branding-townhall-link">
             <img
                 class="navbar-branding-townhall-logo"
-                src="{{ asset('assets/images/user/Components/Sections/Navbar/townhall-logo.png') }}"
+                src="{{ asset('assets/images/user/Components/Navbar/townhall-logo.png') }}"
                 alt="Logo alcaldía" 
             />
         </a>
@@ -30,7 +30,7 @@
 
                 <img
                     class="navbar-branding-search-icon"
-                    src="{{ asset('assets/images/user/Components/Sections/Navbar/search-icon.png') }}"
+                    src="{{ asset('assets/images/user/Components/Navbar/search-icon.png') }}"
                     alt="Buscar" 
                 />
             </button>

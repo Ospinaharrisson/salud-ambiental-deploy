@@ -1,0 +1,91 @@
+/* ========================================================================== */
+/* Variables */
+/* ========================================================================== */
+
+:root {
+    --accessibility-button-bg: #0aa3a3;
+    --accessibility-contrast-bg: #268aa3;
+
+    --accessibility-text: #ffffff;
+
+    --accessibility-shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+html.app-contrast {
+    --accessibility-button-bg: #484747;
+    --accessibility-contrast-bg: #1b1b1b;
+}
+
+/* ========================================================================== */
+/* Container */
+/* ========================================================================== */
+
+.accessibility-buttons-container {
+    position: fixed;
+    top: 35%;
+    right: 0;
+    z-index: 10;
+    width: clamp(40px, 4vw, 52px);
+}
+
+/* ========================================================================== */
+/* Buttons Wrapper */
+/* ========================================================================== */
+
+.accessibility-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 10px 0 0 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ========================================================================== */
+/* Buttons */
+/* ========================================================================== */
+
+.accessibility-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: clamp(30px, 4vh, 38px);
+    margin: 3px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--accessibility-text);
+    background-color: var(--accessibility-button-bg);
+    font-size: clamp(14px, 1.6vw, 18px);
+    box-shadow: 0 2px 4px var(--accessibility-shadow-color);
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.accessibility-buttons button:hover {
+    background-color: #666869;
+}
+
+#toggle-contrast {
+    background-color: var(--accessibility-contrast-bg);
+}
+
+/* ========================================================================== */
+/* Disabled */
+/* ========================================================================== */
+
+.accessibility-buttons button.disabled {
+    opacity: 0.8;
+    cursor: default;
+    color: #e0e0e0;
+    background-color: #b3b3b3 !important;
+    box-shadow: none;
+}
+
+.accessibility-buttons button.disabled:hover {
+    background-color: #b3b3b3 !important;
+}

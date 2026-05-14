@@ -3,7 +3,7 @@
         <div class="asset-searcher">
             <input type="text" class="form-control" wire:model.defer="query" placeholder="Buscar Archivo...">
             <button type="button" class="btn p-0 m-0" wire:click="searchAssets" id="openSearch">
-                <img src="{{ asset('assets/images/user/Components/Sections/Navbar/search-icon.png') }}" alt="buscar">
+                <img src="{{ asset('assets/images/user/Components/Navbar/search-icon.png') }}" alt="buscar">
             </button>
         </div>
     </div>

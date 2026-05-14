@@ -18,30 +18,34 @@
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('assets/css/user/Components/Navbar/branding.css') }}" />
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('assets/css/user/Components/Navbar/desktop.css') }}" />
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('assets/css/user/Components/Navbar/mobile.css') }}" />
+    
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="{{asset('assets/css/user/Components/Utilities/app-button.css')}}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{asset('assets/css/user/Components/Utilities/accesibility-button.css')}}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{asset('assets/css/user/Components/Utilities/contact.css')}}" />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="{{asset('assets/css/user/Components/Sections/App-Buttons/app-button.css')}}" />
-    <link rel="stylesheet" type="text/css" media="screen" href="{{asset('assets/css/user/Components/Sections/Contact/contact.css')}}" />
-    <link rel="stylesheet" type="text/css" media="screen" href="{{asset('assets/css/user/Components/Sections/Footer/footer.css')}}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{asset('assets/css/user/Components/Footer/footer.css')}}" />
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     @stack('styles')
 </head>
 <body>
     @include('User.Components.Navbar.layout')
-    @include('User.Components.Sections.AppButtons.app-buttons')
+    @include('User.Components.Utilities.layout')
     
     <main class="main-content">
         @yield('content')
     </main>
 
-    @include('User.Components.Sections.Contact.contact')
-    @include('User.Components.Sections.Footer.footer')
+    @include('User.Components.Footer.footer')
 
-    
     @include('Shared.Imports.js-imports')
     <script src="{{ asset('assets/js/user/Components/Layout/font-behavior.js') }}"></script>
     <script src="{{ asset('assets/js/user/Components/Layout/contrast-toggle.js') }}"></script>
+
     <script src="{{ asset('assets/js/user/Components/Navbar/desktop-navbar-behavior.js') }}"></script>
     <script src="{{ asset('assets/js/user/Components/Navbar/mobile-navbar-behavior.js') }}"></script>
+    
+    <script src="{{ asset('assets/js/user/Components/Utilities/contact-modal.js') }}"></script>
     @stack('scripts')
     @stack('modals')
 </body>

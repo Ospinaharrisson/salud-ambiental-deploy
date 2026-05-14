@@ -1,6 +1,6 @@
 <div class="text-center py-4">
     <div class="mb-4">
-        <img src="{{ asset('assets/images/user/Components/Sections/Footer/logo-col.png') }}" 
+        <img src="{{ asset('assets/images/user/Components/Footer/logo-col.png') }}" 
             class="img-fluid top-logo" alt="Logo CO">
     </div>
     <div>

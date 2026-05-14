@@ -4,7 +4,7 @@
 
             <img
                 class="mobile-navbar-logo"
-                src="{{ asset('assets/images/user/Components/Sections/Navbar/mobile-townhall-logo.png') }}"
+                src="{{ asset('assets/images/user/Components/Navbar/mobile-townhall-logo.png') }}"
                 alt="Townhall Logo"
             >
 

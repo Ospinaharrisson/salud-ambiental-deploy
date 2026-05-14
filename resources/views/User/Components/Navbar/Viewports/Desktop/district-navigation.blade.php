@@ -3,7 +3,7 @@
         <div class="desktop-navbar-image-wrapper">
             <img
                 class="desktop-navbar-image"
-                src="{{ asset('assets/images/user/Components/Sections/Navbar/district-logo.png') }}"
+                src="{{ asset('assets/images/user/Components/Navbar/district-logo.png') }}"
                 alt="Política Distrital"
             >
         </div>

@@ -2,13 +2,13 @@
     @if((isset($lines) && $lines->isNotEmpty()) || (isset($networks) && $networks->isNotEmpty()))
         <div class="content-section extension-container">
             <h2>Líneas de interés</h2>
-            @include('User.Components.Sections.Footer.Includes.extensions.lines')
-            @include('User.Components.Sections.Footer.Includes.extensions.networks')
+            @include('User.Components.Footer.Includes.extensions.lines')
+            @include('User.Components.Footer.Includes.extensions.networks')
         </div>
     @endif
     @if(isset($footerItems) && $footerItems->isNotEmpty())
         <div id="main-footer">
-            @include('User.Components.Sections.Footer.Includes.footer-items.top')
+            @include('User.Components.Footer.Includes.footer-items.top')
                 <div class="container-fluid">
                     <div class="footer-container footer-middle row">
                         @foreach ($footerItems as $category => $items)
@@ -27,7 +27,7 @@
                         @endforeach
                     </div>
                 </div>
-            @include('User.Components.Sections.Footer.Includes.footer-items.bottom')    
+            @include('User.Components.Footer.Includes.footer-items.bottom')    
         </div>
     @endif
 </footer>

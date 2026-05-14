@@ -32,7 +32,6 @@ html.app-contrast {
 /* ========================================================================== */
 
 .mobile-navbar {
-  display: none;
   width: 100%;
   padding: 10px 0;
   border-top: 3px solid var(--mobile-navbar-border);
@@ -289,12 +288,6 @@ html.app-contrast {
 /* ========================================================================== */
 /* RESPONSIVE
 /* ========================================================================== */
-
-@media (max-width: 768px) {
-  .mobile-navbar {
-    display: block;
-  }
-}
 
 @media (max-width: 576px) {
   .mobile-navbar {

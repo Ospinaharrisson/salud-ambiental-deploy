@@ -25,7 +25,7 @@ class AppButtonServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('User.Components.Sections.AppButtons.app-buttons', function ($view) {
+        View::composer('User.Components.Utilities.layout', function ($view) {
             $appButtons = AppButton::where('is_active', true)
                 ->orderBy('order')
                 ->limit(4)
